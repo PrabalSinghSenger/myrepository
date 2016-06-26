@@ -1,0 +1,7 @@
+/**
+ * 
+ */
+
+    $(function() {
+    	$( "#headerPopup" ).draggable();
+    });

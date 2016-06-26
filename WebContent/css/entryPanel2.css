@@ -1,0 +1,14 @@
+#entryPanel2{overflow-y: auto;}
+#entryPanel2>.contentContainer>.topSection,
+#entryPanel2>.contentContainer>.bottomSection{
+    width: 100%;
+    position: relative;
+    border: 1px solid #888;
+}
+#entryPanel2>.contentContainer>.bottomSection{
+    height: 50px;
+}
+#entryPanel2>.contentContainer>.bottomSection>div {
+    float: right;
+    padding: 15px;
+}

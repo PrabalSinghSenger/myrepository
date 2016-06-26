@@ -1,0 +1,86 @@
+@CHARSET "UTF-8";
+
+/*Global Classes*/
+* {font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;font-size: 12px;}
+.rmpm{padding: 0px;margin: 0px;}
+.rmpd{padding: 0px;}
+.rmmg{margin: 0px;}
+.flrt{float: right}
+.fllt{float: left}
+.mgrt{margin-right: 5px;}
+.mglt{margin-left: 5px;}
+.pdd{padding: 5px;}
+.blueCol{background-color: cornflowerblue;width: 100%;height: 100%}
+.pinkCol{background-color: coral;width: 100%;height: 100%}
+.mateCol{background-color: #456065;color: #fff;}
+.yellowBkCol{
+	background-color: #f9d959;
+    color: #000;
+    font-weight: bold;
+}
+.blueBkCol{
+	background-color: #4da6ff;
+    color: #000;
+    font-weight: bold;
+}
+body,.rootContainer{
+	height: 100%;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+.headerContainer,
+.contentContainer,
+.footerContainer{
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+}
+.headerContainer{
+	height: 60px;
+	position: fixed;
+	top: 0px;
+    z-index: 99;
+}
+.contentContainer{
+	margin-top: 100px;
+    height: calc(100vh - 130px);
+    padding: 0px 5px;
+}
+.footerContainer{
+	height: 25px;
+	width: 100%;
+	background-color: #d1d1d1;
+	position: fixed;
+	bottom: 0px;
+}
+
+.tblDiv table thead,
+.tblDiv .dataTables_scrollHead{
+    background-color: #424242;
+    color: #fff;
+}
+.tblDiv>table{
+	border:1px solid #888;
+}
+.headerTitle{
+    font-size: 14px;
+    font-weight: bold;
+}
+/*BootStrap Override*/
+.form-control, .btn{
+    height: auto;
+    padding: 1px 5px;
+    border-radius: 1px;
+}
+input[type=checkbox], input[type=radio]{
+    margin: 0px;
+    font-size: 12px;
+}
+.nav li a{padding: 5px 10px;}
+.modal-header .modal-title{
+	text-align: center;
+}
+
+

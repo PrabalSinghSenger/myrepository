@@ -1,0 +1,75 @@
+#entryPanel{overflow-y: auto;}
+#entryPanel>.contentContainer>.leftSection,
+#entryPanel>.contentContainer>.rightSection{
+    height: auto;
+    float: left;
+    border: 1px solid #888;
+    position: relative;
+}
+#entryPanel>.contentContainer>.rightSection{height: 95%}
+#entryPanel>.contentContainer>.leftSection{
+    width: 75%;
+    margin-right: 2%;
+}
+#entryPanel>.contentContainer>.rightSection{
+    width: 22%;
+}
+#entryPanel>.contentContainer>.leftSection>.top,
+#entryPanel>.contentContainer>.leftSection>.bottom{
+    width: 100%;
+}
+#entryPanel>.contentContainer>.leftSection>.top{
+    height: 80%;
+    margin-bottom: 2%;
+}
+#entryPanel>.contentContainer>.leftSection>.top>div{border: 1px solid #888;}
+#entryPanel>.contentContainer>.leftSection>.top table td,
+#entryPanel>.contentContainer>.rightSection table td{
+    border-radius: 0px;
+}
+#entryPanel>.contentContainer>.leftSection>.bottom{
+    height: auto;
+    position: relative;
+}
+#entryPanel>.contentContainer>.leftSection>.bottom>.first,
+#entryPanel>.contentContainer>.leftSection>.bottom>.second{
+    width: 100%;
+    height: 50%;
+}
+#entryPanel>.contentContainer>.leftSection>.bottom>.first{
+    position: relative;
+    height: 30px;
+    padding: 0px 10px;
+}
+#entryPanel>.contentContainer>.leftSection>.bottom>.second{
+    height: 50px;
+    position: relative;
+    padding: 0px 10px;
+}
+#entryPanel>.contentContainer>.leftSection>.bottom>.first input:nth-child(5),
+#entryPanel>.contentContainer>.leftSection>.bottom>.first input:nth-child(6){
+    width: 100px;
+}
+#entryPanel>.contentContainer>.leftSection>.bottom>.second>.top{
+    width: 100%;height: 15px;padding: 2px 5px;
+}
+#entryPanel>.contentContainer>.leftSection>.bottom>.second>.bottom{
+    width: 100%;height: 30px;padding: 2px 5px;position: absolute;
+}
+#entryPanel>.contentContainer>.leftSection>.bottom>.second>.top span:nth-child(1),
+#entryPanel>.contentContainer>.leftSection>.bottom>.second>.top span:nth-child(2),
+#entryPanel>.contentContainer>.leftSection>.bottom>.second>.top span:nth-child(3),
+#entryPanel>.contentContainer>.leftSection>.bottom>.second>.top span:nth-child(4),
+
+#entryPanel>.contentContainer>.leftSection>.bottom>.second>.bottom input:nth-child(1),
+#entryPanel>.contentContainer>.leftSection>.bottom>.second>.bottom input:nth-child(2),
+#entryPanel>.contentContainer>.leftSection>.bottom>.second>.bottom input:nth-child(3),
+#entryPanel>.contentContainer>.leftSection>.bottom>.second>.bottom select:nth-child(4){
+    width: 100px;
+}
+#entryPanel>.contentContainer>.leftSection>.bottom>.second>.top span:nth-child(5),
+#entryPanel>.contentContainer>.leftSection>.bottom>.second>.bottom select:nth-child(5){
+    width: 200px;
+}
+
+
