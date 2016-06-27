@@ -5,7 +5,7 @@
 <head>
 	<%String ctxPath=request.getContextPath();%>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Insert title here</title>
+	<title>${teamBean.comment } Admin Panel</title>
 	<link rel="stylesheet" href="<%=ctxPath%>/css/datatables.min.css" type="text/css">
     <link rel="stylesheet" href="<%=ctxPath%>/css/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="<%=ctxPath%>/css/font-awesome.min.css" type="text/css"/>
@@ -17,53 +17,337 @@
     <div class="col-xs-12 headerContainer"><jsp:include page="header.jsp"></jsp:include></div>
 	<div class="col-xs-12 contentContainer">
         <div class="adminLeftPanel">
-            <div class="sectionFirst">
-                    <div class="box1" style='width: 210px;border: 1px solid #d5d5d5;padding: 0px;'>
-                    	<span style='display: block;width: 100%;margin: 0px;'>
-                    		<input class="form-control" style='float: left;margin: 2px;' name='team_1' type="text" value="${teamBean.team_1 }"/>
-                    		<input class='form-control' style='float: left;margin: 2px;width: 95px;' type='text'>
-                    		<input class='form-control' style='float: left;margin: 2px;width: 30px;' type='text'>
-                    	</span>
-                    	<span style='display: block;width: 100%;margin: 0px;'>
-                    		<input class="form-control" style='float: left;margin: 2px;' name='team_2' type="text"value="${teamBean.team_2 }"/>
-                    		<input class='form-control' style='float: left;margin: 2px;width: 95px;' type='text'>
-                    		<input class='form-control' style='float: left;margin: 2px;width: 30px;' type='text'>
-                    	</span>
-                    </div>
-                    <!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
-                    <div class="box1" style='width: 210px;border: 1px solid #d5d5d5;padding: 0px;'>
-                            <span style='display: block;width: 100%;margin: 0px;'>
-                    		<input class="form-control" style='float: left;margin: 2px;' name='team_1' type="text" value="${teamBean.team_1 }"/>
-                    		<input class='form-control' style='float: left;margin: 2px;width: 95px;' type='text'>
-                    		<input class='form-control' style='float: left;margin: 2px;width: 30px;' type='text'>
-                    	</span>
-                    	<span style='display: block;width: 100%;margin: 0px;'>
-                    		<input class="form-control" style='float: left;margin: 2px;'  name='team_2' type="text"value="${teamBean.team_2 }"/>
-                    		<input class='form-control' style='float: left;margin: 2px;width: 95px;' type='text'>
-                    		<input class='form-control' style='float: left;margin: 2px;width: 30px;' type='text'>
-                    	</span>
-                    </div>
-                    <!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
-                    <div class="box2" style="width: 210px;float: left;padding: 0px;margin: 0px;">
-                            <span style='width: 100%;display: block;'>Actual Book <input type="checkbox" style="float: right;"></span>
-                            <span style='width: 100%;display: block;'>Without Com <input type="checkbox" style="float: right;"></span>
-                            <span style='width: 100%;display: block;'>With Patti <input type="checkbox" style="float: right;"></span>
-                           <!--  <span style='width: 100%;display: block;'>Auto accept bids of Match <input type="checkbox" style="float: right;"></span>
+
+				<c:choose>
+					<c:when test="${not empty teamBean.team_1 and not empty teamBean.team_2 and  empty teamBean.team_3 }">
+						<div class="sectionFirst">
+							<div class="box1"
+								style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
+								<c:if test="${not empty teamBean.team_1 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_1 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+								<c:if test="${not empty teamBean.team_2 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_2 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+
+							</div>
+							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
+							<div class="box1"
+								style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
+								<c:if test="${not empty teamBean.team_1 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_1 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+								<c:if test="${not empty teamBean.team_2 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_2 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+							</div>
+							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
+							<div class="box2"
+								style="width: 210px; float: left; padding: 0px; margin: 0px;">
+								<span style='width: 100%; display: block;'>Actual Book <input
+									type="checkbox" style="float: right;"></span> <span
+									style='width: 100%; display: block;'>Without Com <input
+									type="checkbox" style="float: right;"></span> <span
+									style='width: 100%; display: block;'>With Patti <input
+									type="checkbox" style="float: right;"></span>
+								<!--  <span style='width: 100%;display: block;'>Auto accept bids of Match <input type="checkbox" style="float: right;"></span>
                             <span style='width: 100%;display: block;'>Auto accept session bids <input type="checkbox" style="float: right;"></span> -->
-                    </div>
-                    <!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
-                    <div class="box3" style='float: right;width: 160px;border: 1px solid #d5d5d5;'>
-                            <span class="fllt" style='float: left;display: block;width: 45px;height: 25px;margin: 3px 0px;'>AVG L</span>
-                            <input class="form-control blueBkCol" style='float: left;width: 95px;height: 25px;margin: 3px 0px;' name='avgLgi' type="number" step="0.01"/>
-                            <span style='float: left;display: block;width: 45px;height: 25px;margin: 3px 0px;'>AVG K</span>
-                            <input class="form-control yellowBkCol"  style='float: left;width: 95px;height: 25px;margin: 3px 0px;' name='avgKhi'  type="number" step="0.01"/>
-                    </div>
-                    <!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
-                    <!-- <div class="box4">
+							</div>
+							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
+							<div class="box3"
+								style='float: right; width: 160px; border: 1px solid #d5d5d5;'>
+								<span class="fllt"
+									style='float: left; display: block; width: 45px; height: 25px; margin: 3px 0px;'>AVG
+									L</span> <input class="form-control blueBkCol"
+									style='float: left; width: 95px; height: 25px; margin: 3px 0px;'
+									name='avgLgi' type="number" step="0.01" /> <span
+									style='float: left; display: block; width: 45px; height: 25px; margin: 3px 0px;'>AVG
+									K</span> <input class="form-control yellowBkCol"
+									style='float: left; width: 95px; height: 25px; margin: 3px 0px;'
+									name='avgKhi' type="number" step="0.01" />
+							</div>
+							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
+							<!-- <div class="box4">
 
                     </div> -->
-            </div>
-            <div class="sectionSecond">
+						</div>
+
+					</c:when>
+					<c:when
+						test="${not empty teamBean.team_1 and not empty teamBean.team_2 and not empty teamBean.team_3  and  empty teamBean.team_4 }">
+
+						<div class="sectionFirst">
+							<div class="box1"
+								style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
+								<c:if test="${not empty teamBean.team_1 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_1 }" /> <input
+										class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+								<c:if test="${not empty teamBean.team_2 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_2 }" /> <input
+										class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+
+								<c:if test="${not empty teamBean.team_3 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_3 }" /> <input
+										class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+
+
+							</div>
+							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
+							<div class="box1"
+								style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
+								<c:if test="${not empty teamBean.team_1 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_1 }" /> <input
+										class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+								<c:if test="${not empty teamBean.team_2 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_2 }" /> <input
+										class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+
+								<c:if test="${not empty teamBean.team_3 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_3 }" /> <input
+										class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+
+							</div>
+							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
+							<div class="box2"
+								style="width: 210px; float: left; padding: 0px; margin: 0px;">
+								<span style='width: 100%; display: block;'>Actual Book <input
+									type="checkbox" style="float: right;"></span> <span
+									style='width: 100%; display: block;'>Without Com <input
+									type="checkbox" style="float: right;"></span> <span
+									style='width: 100%; display: block;'>With Patti <input
+									type="checkbox" style="float: right;"></span>
+								<!--  <span style='width: 100%;display: block;'>Auto accept bids of Match <input type="checkbox" style="float: right;"></span>
+                            <span style='width: 100%;display: block;'>Auto accept session bids <input type="checkbox" style="float: right;"></span> -->
+							</div>
+							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
+							<div class="box3" style='float: right; width: 160px; border: 1px solid #d5d5d5;'>
+									 <span class="fllt"	style='float: left; display: block; width: 45px; height: 25px; margin: 3px 0px;'>AVG L</span>
+									 <input class="form-control blueBkCol" style='float: left; width: 95px; height: 25px; margin: 3px 0px;' name='avgLgi' type="number" step="0.01" />
+									 <span style='float: left; display: block; width: 45px; height: 25px; margin: 3px 0px;'>AVG K</span>
+									 <input class="form-control yellowBkCol"style='float: left; width: 95px; height: 25px; margin: 3px 0px;' name='avgKhi' type="number" step="0.01" />
+							</div>
+						</div>
+
+
+					</c:when>
+					<c:otherwise>
+						<div class="sectionFirst">
+							<div class="box1"
+								style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
+								<c:if test="${not empty teamBean.team_1 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_1 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+								<c:if test="${not empty teamBean.team_2 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_2 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+								<c:if test="${not empty teamBean.team_3 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_3 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+								<c:if test="${not empty teamBean.team_4 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_4 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+							</div>
+							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
+							<div class="box2"
+								style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
+								<c:if test="${not empty teamBean.team_5 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_5 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+								<c:if test="${not empty teamBean.team_6 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_6 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+
+								<c:if test="${not empty teamBean.team_7 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_7 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+
+								<c:if test="${not empty teamBean.team_8 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_8 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+							</div>
+							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
+							<div class="box2" style="width: 210px; float: left; padding: 0px; margin: 0px; border: 1px solid #d5d5d5;">
+								<c:if test="${not empty teamBean.team_9 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_9 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+								<c:if test="${not empty teamBean.team_10 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_10 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+
+								<c:if test="${not empty teamBean.team_11 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_11 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+
+								<c:if test="${not empty teamBean.team_12 }">
+									<span style='display: block; width: 100%; margin: 0px;'>
+										<input class="form-control" style='float: left; margin: 2px;'
+										name='team_1' type="text" value="${teamBean.team_12 }"
+										readonly="readonly" /> <input class='form-control'
+										style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'
+										style='float: left; margin: 2px; width: 30px;' type='text'>
+									</span>
+								</c:if>
+							</div>
+							<div class="box3" style='float: right; width: 160px; border: 1px solid #d5d5d5;'>
+								<span style='width: 100%; display: block;'>Actual Book <input type="checkbox" style="float: right;"></span>
+								<span style='width: 100%; display: block;'>Without Com <input	type="checkbox" style="float: right;"></span>
+								<span style='width: 100%; display: block;'>With Patti <input type="checkbox" style="float: right;"></span>
+							</div>
+
+						</div>
+
+					</c:otherwise>
+				</c:choose>
+
+				<div class="sectionSecond">
                 <div class="leftSec">
                     <div class="top">
                     <div>
@@ -304,7 +588,7 @@
         <!-- <span id='showOverlayBtn' class='showBtn' onclick='showHideOverlay(1)'><i class='fa fa-chevron-left'></i></span> -->
         <div id='adminOverlayPanel'>
         	<!-- <span class='hideBtn' onclick='showHideOverlay(0)'><i class='fa fa-chevron-right'></i></span> -->
-        	<div class='adminOverlayPanelTblDiv'>
+ 	      	<div class='adminOverlayPanelTblDiv'>
         		<table class='table table-striped table-bordered ' style='margin:0px;'>
         			<tr>
         				<td>India 1st ODI</td>
@@ -409,8 +693,8 @@
         		<thead>
         			<tr>
         				<th>Select</th>
-        				<th>Data1</th>
-        				<th>Data1</th>
+        				<th>Session Comment</th>
+        				<th>Date</th>
         				<th>Data1</th>
         				<th>Data1</th>
         				<th>Data1</th>
@@ -418,6 +702,7 @@
         		</thead>
         		<tbody id="SelectModelSessionId">
         			<tr>
+        				<td><input type="checkbox"  name="sessionSelect" ></td>
         				<td>Data1</td>
         				<td>Data1</td>
         				<td>Data1</td>
@@ -575,6 +860,9 @@
   </div>
 </div>
 
+
+
+
 <div id='headerPopup' style='position:fixed;top:5px;right:5px;height:auto;width:400px;background:#fff;box-shadow:0px 0px 2px 2px #999;z-index:99'>
 	<div style='width:100%;height:15px;background:#353535;padding: 0px 5px;'>
 		<div style='float:left;'>
@@ -606,8 +894,10 @@
 				<span style='float:right'>Winners: (1)</span>
 			</div>
 		</div>
+				<c:if test="${not empty teamBean.team_1 }">
+
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>INDIA</div>
+			<div style='float: left;'>${teamBean.team_1  }</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
@@ -643,8 +933,10 @@
 				</div>
 			</div>
 		</div>
+       </c:if>
+	   <c:if test="${not empty teamBean.team_2 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>SRI LANKA</div>
+			<div style='float: left;'>${teamBean.team_2  }</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
@@ -680,6 +972,410 @@
 				</div>
 			</div>
 		</div>
+
+       </c:if>
+	   <c:if test="${not empty teamBean.team_3 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${teamBean.team_3 }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
+			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+		</div>
+
+       </c:if>
+	   <c:if test="${not empty teamBean.team_4 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${teamBean.team_4  }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
+			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+		</div>
+
+       </c:if>
+	   <c:if test="${not empty teamBean.team_5 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${teamBean.team_5  }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
+			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+		</div>
+
+       </c:if>
+	   <c:if test="${not empty teamBean.team_6 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${teamBean.team_6  }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
+			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+		</div>
+
+       </c:if>
+	   <c:if test="${not empty teamBean.team_7 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${teamBean.team_7  }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
+			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+		</div>
+
+       </c:if>
+	   <c:if test="${not empty teamBean.team_8 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${teamBean.team_8 }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
+			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+		</div>
+
+       </c:if>
+	   <c:if test="${not empty teamBean.team_9 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${teamBean.team_9 }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
+			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+		</div>
+
+       </c:if>
+	   <c:if test="${not empty teamBean.team_10}">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${teamBean.team_10 }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
+			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+		</div>
+
+       </c:if>
+	   <c:if test="${not empty teamBean.team_11 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${teamBean.team_11  }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
+			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+		</div>
+
+       </c:if>
+	   <c:if test="${not empty teamBean.team_12 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${teamBean.team_12  }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
+			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
+					<span style='display: block;text-align: center;'>$316</span>
+				</div>
+			</div>
+		</div>
+
+       </c:if>
+
+
 	</div>
 </div>
 	<div class="footerContainer"><jsp:include page="footer.jsp"></jsp:include> </div>
