@@ -46,7 +46,7 @@
 
 							</div>
 							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
-							<div class="box1"
+						<%-- 	<div class="box1"
 								style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
 								<c:if test="${not empty teamBean.team_1 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
@@ -68,10 +68,9 @@
 										style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
-							</div>
+							</div> --%>
 							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
-							<div class="box2"
-								style="width: 210px; float: left; padding: 0px; margin: 0px;">
+							<div class="box2" style="width: 210px; float: left; padding: 0px; margin: 0px;border: 1px solid #d5d5d5;">
 								<span style='width: 100%; display: block;'>Actual Book <input
 									type="checkbox" style="float: right;"></span> <span
 									style='width: 100%; display: block;'>Without Com <input
@@ -869,7 +868,7 @@
 			<i onclick='minimizeWindow(this)' class="fa fa-minus fa-plus" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			<i class="fa fa-question" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 		</div>
-		<div style='float: left;color: #fff;margin-left: 10px;'>INDIA V/S SRI LANKA (3rd ODI) - Match Odds</div>
+		<div style='float: left;color: #fff;margin-left: 10px;'>${ teamBean.comment } - Match Odds</div>
 		<div style='float:right;'>
 			<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			<i class="fa fa-thumb-tack" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
@@ -880,7 +879,7 @@
 		<div style='width:100%;height:20px;background:#eee;padding: 2px 5px;'>
 			<span>22/06/2016 14:32</span>
 			<span style='margin-left: 20%;font-weight: bold;color:blue'>2:33:45:59</span>
-			<span style='float:right'>IND</span>
+			<!-- <span style='float:right'>IND</span> -->
 		</div>
 		<div style='width:100%;height:20px;background:#fff;padding: 0px 0px;'>
 			<div class='blueCol' style='float: left;width: 48%;height: 100%;padding: 2px;color: #000;'>
@@ -1461,6 +1460,8 @@
 
             adjustments();
         	 $("body").on("dblclick","#showRecs1 tr",function(){
+
+        	 alert($(this).attr("id"))
         		 $('#individualReport').modal();
      			$('#individualReport').modal('show');
         	 });
