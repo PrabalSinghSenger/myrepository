@@ -875,7 +875,7 @@
 			<i onclick='closeWindow("headerPopup")' class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 		</div>
 	</div>
-	<div id='headerPopupInner' style='height:138px;width:100%;box-shadow:0px 0px 2px 2px #999;'>
+	<div id='headerPopupInner' style='height:calc(100% - 15px);width:100%;box-shadow:0px 0px 2px 2px #999;'>
 		<div style='width:100%;height:20px;background:#eee;padding: 2px 5px;'>
 			<span>22/06/2016 14:32</span>
 			<span style='margin-left: 20%;font-weight: bold;color:blue'>2:33:45:59</span>
@@ -893,488 +893,408 @@
 				<span style='float:right'>Winners: (1)</span>
 			</div>
 		</div>
-				<c:if test="${not empty teamBean.team_1 }">
-
+		<div style='width: 75%;height:auto;float: left;'>
+		
+		<c:if test="${not empty teamBean.team_1 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>${teamBean.team_1  }</div>
+			<div style='float: left;'>INDIA</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			</div>
 		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
-			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
+		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
 		</div>
+		
        </c:if>
 	   <c:if test="${not empty teamBean.team_2 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>${teamBean.team_2  }</div>
+			<div style='float: left;'>INDIA</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			</div>
 		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
-			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
+		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
 		</div>
 
        </c:if>
 	   <c:if test="${not empty teamBean.team_3 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>${teamBean.team_3 }</div>
+			<div style='float: left;'>INDIA</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			</div>
 		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
-			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
 		</div>
-
        </c:if>
 	   <c:if test="${not empty teamBean.team_4 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>${teamBean.team_4  }</div>
+			<div style='float: left;'>INDIA</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			</div>
 		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
-			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
 		</div>
-
        </c:if>
 	   <c:if test="${not empty teamBean.team_5 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>${teamBean.team_5  }</div>
+			<div style='float: left;'>INDIA</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			</div>
 		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
-			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
 		</div>
-
        </c:if>
 	   <c:if test="${not empty teamBean.team_6 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>${teamBean.team_6  }</div>
+			<div style='float: left;'>INDIA</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			</div>
 		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
-			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
 		</div>
-
        </c:if>
 	   <c:if test="${not empty teamBean.team_7 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>${teamBean.team_7  }</div>
+			<div style='float: left;'>INDIA</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			</div>
 		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
-			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
 		</div>
-
        </c:if>
 	   <c:if test="${not empty teamBean.team_8 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>${teamBean.team_8 }</div>
+			<div style='float: left;'>INDIA</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			</div>
 		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
-			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
 		</div>
-
        </c:if>
 	   <c:if test="${not empty teamBean.team_9 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>${teamBean.team_9 }</div>
+			<div style='float: left;'>INDIA</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			</div>
 		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
-			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-		</div>
-
-       </c:if>
+		</div>       </c:if>
 	   <c:if test="${not empty teamBean.team_10}">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>${teamBean.team_10 }</div>
+			<div style='float: left;'>INDIA</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			</div>
 		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
-			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-		</div>
-
-       </c:if>
+		</div>       </c:if>
 	   <c:if test="${not empty teamBean.team_11 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>${teamBean.team_11  }</div>
+			<div style='float: left;'>INDIA</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			</div>
 		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
-			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
 					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
 					<span style='display: block;text-align: center;'>$316</span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
 		</div>
-
        </c:if>
 	   <c:if test="${not empty teamBean.team_12 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>${teamBean.team_12  }</div>
+			<div style='float: left;'>INDIA</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 			</div>
 		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px 5px;position: relative;'>
-			<div style='float:left;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
+		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				<div class="blueCol" style='display:block;width:50px;float:right;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
-			<div style='float:right;width:48%;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;border-left: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				<div class="pinkCol" style='display:block;width:50px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
+				
 			</div>
 		</div>
-
        </c:if>
-
-
+</div>
+		<div style='width: 25%;height:calc(100% - 40px);float: left;'>
+			<textarea rows="" cols="" style='width:100%;height:100%' maxlength="300"></textarea>
+		</div>
 	</div>
 </div>
 	<div class="footerContainer"><jsp:include page="footer.jsp"></jsp:include> </div>
@@ -1391,7 +1311,7 @@
     });
     function minimizeWindow(obj){
     	$("#headerPopupInner").slideToggle();
-    	$("#headerPopup").height("15px");
+    	$("#headerPopup").height("auto");
     	$(obj).toggleClass("fa-minus");
     }
     function closeWindow(id){

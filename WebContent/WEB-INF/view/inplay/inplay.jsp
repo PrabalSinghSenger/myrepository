@@ -74,7 +74,45 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 <div class='col-xs-12 rootContainer'>
 	<div class="col-xs-12 headerContainer"><jsp:include page="header.jsp"></jsp:include></div>
 	<div class="col-xs-12 contentContainer">
-		<div class='col-xs-offset-2 col-xs-8'>
+		<div class='col-xs-2 rmpm' style='height: 100%;overflow: auto;box-shadow: 0px 0px 2px 0px #999;height: 100%;'>
+			<div class='col-xs-12 rmpm' style='height: 100%;'>
+				<div class="col-xs-12" style='height:20px;background:#353535;padding:3px;color:#fff;'>
+					<div style='float:left;'>
+						<i class="fa fa-minus" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+						<i class="fa fa-question" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+					</div>
+					<div style='float: left;padding-left: 20px'>INDIA</div>
+					<div style='float:right;'>
+						<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+					</div>
+				</div>
+				<div class="col-xs-12 rmpm">
+					<div class="col-xs-12 rmpm">
+						<i class="fa fa-plus  mainCatg" style='cursor:pointer;color: #000;margin: 0px 3px;'></i>
+						<span>Cricket</span>
+						<div class="col-xs-12 rmpm subCatg" style='padding-left: 10px;display:none'>
+							<div class="col-xs-12 rmpm">
+								<i class="fa fa-plus mainCatg" style='cursor:pointer;color: #000;margin: 0px 3px;'></i>
+								<span>Match</span>
+								<div class="col-xs-12 rmpm subSubCatg" style='padding-left: 20px;display:none;'>
+									<span style="display: block;">Match 1</span>
+									<span style="display: block;">Match 1</span>
+								</div>
+							</div>
+							<div class="col-xs-12 rmpm">
+								<i class="fa fa-plus mainCatg" style='cursor:pointer;color: #000;margin: 0px 3px;'></i>
+								<span>Session</span>
+								<div class="col-xs-12 rmpm subSubCatg" style='padding-left: 20px;display:none'>
+									<span style="display: block;">Session 1</span>
+									<span style="display: block;">Session 1</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='col-xs-8'>
 
 		  <!-- Nav tabs -->
 		  <ul class="nav nav-tabs" role="tablist">
@@ -83,10 +121,10 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 		  </ul>
 
 		  <!-- Tab panes -->
-		  <div class="tab-content">
-		    <div role="tabpanel" class="tab-pane active" id="inplay">
+		  <div class="col-xs-12 tab-content">
+		    <div role="tabpanel" class="col-xs-12 tab-pane active" id="inplay">
 		    	<div class='col-xs-12 tblDiv2 rmpm'>
-		    	<table id='inplayPrime' class="table table-striped">
+		    	<table id='inplayPrime' class="col-xs-12 table table-striped">
 		    		<thead>
 		    			<tr>
 		    				<td>In-Play Cricket</td>
@@ -145,7 +183,11 @@ $(document).ready(function(){
 			alert(rateNowMatchId+"     "+rateNowMatchName);
 		});
  */
-
+	$(".mainCatg").click(function(){
+		$(this).toggleClass("fa-minus");
+		$(this).next().next().slideToggle();
+		
+	});
 
 	getBetRejectList();
 	$(".TeamRateSpanClass").click(function(){//alert("call       "+this.id.split("_")[2])
@@ -217,7 +259,7 @@ $('#inplayPrime').DataTable({
     "fixedHeader": false,
     "order": [[ 0, "desc" ]],
     "columns": [
-                { "width": "450px" },
+                { "width": "120px" },
                 { "width": "30px" },
                 { "width": "30px" },
                 { "width": "30px" },
