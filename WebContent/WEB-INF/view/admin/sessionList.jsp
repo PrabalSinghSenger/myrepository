@@ -4,7 +4,7 @@
 
 <c:forEach var="session" items="${ sessionMatchLis}">
 <tr id="${ session.sessionId}">
-        				<td><input type="checkbox" id="CHk${ session.sessionId}"></td>
+        				<td><input type="checkbox" id="CHk${ session.sessionId}" class="sessionSelectCheckClass" name="${ session.sessionComment}"></td>
         				<td>${ session.sessionComment}</td>
         				<td>${ session.createdTime}</td>
         				<td>${ session.rate}</td>

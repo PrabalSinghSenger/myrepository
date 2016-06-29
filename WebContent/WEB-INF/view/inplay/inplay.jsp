@@ -95,16 +95,18 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 								<i class="fa fa-plus mainCatg" style='cursor:pointer;color: #000;margin: 0px 3px;'></i>
 								<span>Match</span>
 								<div class="col-xs-12 rmpm subSubCatg" style='padding-left: 20px;display:none;'>
-									<span style="display: block;">Match 1</span>
-									<span style="display: block;">Match 1</span>
+									<c:forEach var="team" items="${matchList}">
+									<span id="${team.teamId }" style="display: block;">${team.comment }</span>
+									</c:forEach>
 								</div>
 							</div>
 							<div class="col-xs-12 rmpm">
 								<i class="fa fa-plus mainCatg" style='cursor:pointer;color: #000;margin: 0px 3px;'></i>
 								<span>Session</span>
 								<div class="col-xs-12 rmpm subSubCatg" style='padding-left: 20px;display:none'>
-									<span style="display: block;">Session 1</span>
-									<span style="display: block;">Session 1</span>
+								   <c:forEach var="sesion" items="${sessionList}">
+									<span id="${sesion.sessionId }" style="display: block;">${sesion.sessionComment }</span>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
@@ -186,7 +188,7 @@ $(document).ready(function(){
 	$(".mainCatg").click(function(){
 		$(this).toggleClass("fa-minus");
 		$(this).next().next().slideToggle();
-		
+
 	});
 
 	getBetRejectList();

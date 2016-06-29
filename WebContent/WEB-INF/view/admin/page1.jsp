@@ -493,6 +493,7 @@
                     <button class="btn btn-primary">&nbsp;&nbsp;&nbsp;Close&nbsp;&nbsp;&nbsp;</button>
                 </div>
             </div>
+
             <div class="sectionSixth">
                 <div class="top">
                     <span>Session</span>
@@ -503,21 +504,27 @@
                     <span>Name</span>
                 </div>
                 <div class="bot">
-                    <input class='form-control' type="text"/>
-                    <input class='form-control' type="number" step="0.01"/>
-                    <input class='form-control' type="text"/>
-                    <input class='form-control' type="text"/>
-                    <select id="YesNoLabel" class='form-control'>
+                 <form name="sessionRateForm" id="sessionRateForm">
+                    <input class='form-control'  id="sessionRateFormNameId"  name="sessionRateFormName"  type="text"/>
+
+                    <input class='form-control'  id="sessionRateFormRateId"  name="sessionRateFormRate"  type="number" step="0.01"/>
+                    <input class='form-control'  id="sessionRateFormRunsId"  name="sessionRateFormRuns"    type="number" step="1"/>
+                    <input class='form-control' id="sessionRateFormAmountId" name="sessionRateFormAmount"  type="text"/>
+                    <select name="sessionRateFormYesNoLabel"  id="YesNoLabel" class='form-control'>
                         <option value="yes">Yes</option>
                         <option value="no">No</option>
                     </select>
-                    <select class='form-control'>
+                    <select  name="sessionRateFormUseriD"  class='form-control'>
                         <c:forEach var="user" items="${userList }">
                     	   <option value="${user.userId }">${user.userName }-(${user.userId })</option>
                    		 </c:forEach>
                     </select>
-                    <button class="btn btn-primary">OK</button>
-                    <button class="btn btn-primary">View Trns</button>
+                     <input class='form-control' id="sessionRateFormSessionId"  name="sessionRateFormSessionId" type="hidden"/>
+                      </form>
+                    <button id="sessionRateFormOkBtn" onclick="enterSessionBetRate();" disabled="disabled" class="btn btn-primary">OK</button>
+                    <button class="btn btn-primary" >View Trns</button>
+
+
                 </div>
             </div>
         </div>
@@ -676,6 +683,8 @@
 </div>
 
 
+
+
 <!-- Select Session Modal -->
 <div id="selSession" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -713,13 +722,14 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+        <button type="button" class="btn btn-primary" id="selectSessionButton" disabled="disabled" onclick="selectSessionForRate();"  data-dismiss="modal">Ok</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>
 
   </div>
 </div>
+
 
 <!-- Declare Modal -->
 <div id="declare" class="modal fade" role="dialog">
@@ -860,8 +870,7 @@
 </div>
 
 
-
-
+<!-- For All team Rate Colored Panel -->
 <div id='headerPopup' style='position:fixed;top:5px;right:5px;height:auto;width:400px;background:#fff;box-shadow:0px 0px 2px 2px #999;z-index:99'>
 	<div style='width:100%;height:15px;background:#353535;padding: 0px 5px;'>
 		<div style='float:left;'>
@@ -894,10 +903,10 @@
 			</div>
 		</div>
 		<div style='width: 75%;height:auto;float: left;'>
-		
+
 		<c:if test="${not empty teamBean.team_1 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>INDIA</div>
+			<div style='float: left;'>${ teamBean.team_1 }</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
@@ -906,32 +915,30 @@
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
 					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
 					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
 					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
 					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				
 			</div>
 		</div>
-		
        </c:if>
+
 	   <c:if test="${not empty teamBean.team_2 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>INDIA</div>
+			<div style='float: left;'>${ teamBean.team_2 }</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
@@ -940,327 +947,30 @@
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
 					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
 					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
 					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
 					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				
 			</div>
 		</div>
-
        </c:if>
+
 	   <c:if test="${not empty teamBean.team_3 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>INDIA</div>
-			<div style='float:right;'>
-				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-			</div>
-		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-		</div>
-       </c:if>
-	   <c:if test="${not empty teamBean.team_4 }">
-		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>INDIA</div>
-			<div style='float:right;'>
-				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-			</div>
-		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-		</div>
-       </c:if>
-	   <c:if test="${not empty teamBean.team_5 }">
-		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>INDIA</div>
-			<div style='float:right;'>
-				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-			</div>
-		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-		</div>
-       </c:if>
-	   <c:if test="${not empty teamBean.team_6 }">
-		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>INDIA</div>
-			<div style='float:right;'>
-				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-			</div>
-		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-		</div>
-       </c:if>
-	   <c:if test="${not empty teamBean.team_7 }">
-		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>INDIA</div>
-			<div style='float:right;'>
-				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-			</div>
-		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-		</div>
-       </c:if>
-	   <c:if test="${not empty teamBean.team_8 }">
-		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>INDIA</div>
-			<div style='float:right;'>
-				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-			</div>
-		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-		</div>
-       </c:if>
-	   <c:if test="${not empty teamBean.team_9 }">
-		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>INDIA</div>
-			<div style='float:right;'>
-				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-			</div>
-		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-		</div>       </c:if>
-	   <c:if test="${not empty teamBean.team_10}">
-		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>INDIA</div>
-			<div style='float:right;'>
-				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-			</div>
-		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-		</div>       </c:if>
-	   <c:if test="${not empty teamBean.team_11 }">
-		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>INDIA</div>
-			<div style='float:right;'>
-				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-			</div>
-		</div>
-		<div style='width:100%;height:30px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'>4.5</span>
-					<span style='display: block;text-align: center;'>$316</span>
-				</div>
-				
-			</div>
-		</div>
-       </c:if>
-	   <c:if test="${not empty teamBean.team_12 }">
-		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
-			<div style='float: left;'>INDIA</div>
+			<div style='float: left;'>${ teamBean.team_3 }</div>
 			<div style='float:right;'>
 				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
@@ -1269,25 +979,311 @@
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
 					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
 					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
 					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
 					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
 				</div>
-				
+			</div>
+		</div>
+       </c:if>
+
+	   <c:if test="${not empty teamBean.team_4 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${ teamBean.team_4 }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+		</div>
+       </c:if>
+
+	   <c:if test="${not empty teamBean.team_5 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${ teamBean.team_5 }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+		</div>
+       </c:if>
+
+	   <c:if test="${not empty teamBean.team_6 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${ teamBean.team_6 }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+		</div>
+       </c:if>
+
+	   <c:if test="${not empty teamBean.team_7 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${ teamBean.team_7 }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+		</div>
+       </c:if>
+
+	   <c:if test="${not empty teamBean.team_8}">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${ teamBean.team_8}</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+		</div>
+       </c:if>
+
+	   <c:if test="${not empty teamBean.team_9 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${ teamBean.team_9 }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+		</div>
+       </c:if>
+
+	   <c:if test="${not empty teamBean.team_10 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${ teamBean.team_10 }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+		</div>
+       </c:if>
+
+	   <c:if test="${not empty teamBean.team_11 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${ teamBean.team_11 }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+		</div>
+       </c:if>
+
+	   <c:if test="${not empty teamBean.team_12 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${ teamBean.team_12 }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+			</div>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
+					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				</div>
 			</div>
 		</div>
        </c:if>
@@ -1297,6 +1293,7 @@
 		</div>
 	</div>
 </div>
+<!-- End of For All team Rate Colored Panel -->
 	<div class="footerContainer"><jsp:include page="footer.jsp"></jsp:include> </div>
     </div>
 </body>
@@ -1368,15 +1365,58 @@
         		$("#showOverlayBtn").hide();
         	}
         }
+
+        function selectSessionForRate(){
+        	if(sessionSelectId ==="" && sessionSelectName===""){
+        		alert("please select a session First")
+        	}else{
+        		 alert(sessionSelectId+"              "+sessionSelectName);
+        		 $("#sessionRateFormNameId").val(sessionSelectName);
+        		 $("#sessionRateFormSessionId").val(sessionSelectId);
+        		 $("#sessionRateFormOkBtn").attr("disabled",false);
+        	}
+        	  sessionSelectId="";
+              sessionSelectName="";
+        }
+
+        function enterSessionBetRate(){
+        	alert( $("#sessionRateForm").serialize());
+        	$.ajax({
+    		    type: "get",
+    		    async :false,
+    		    data: $("#sessionRateForm").serialize(),
+    		    url: "<%=ctxPath%>/admin/setAdminSessionRate",
+    		    success: function(data){
+    		    	alert(data);
+    		    },
+    			error:function() {
+    				alert("Not Updated Try again.");
+    			}
+    		});
+        }
+
+
+        // for session select name and id
+        var sessionSelectId="";
+        var sessionSelectName="";
+
         $(document).ready(function(){
 
 
-   /*      	$(document).ready(function(){
-        		$("#addTeamDate,#editTeamDate").datepicker({
-        			startDate: '${sdate}', //MM/DD/YYYY
-        		    endDate: '${edate}'
-        		});
-        	 */
+			/* For select session checkbox like radio button for rate  */
+        	 $("body").on("click",".sessionSelectCheckClass",function(){
+				var id=$(this).attr("id").replace("CHk","");
+				var name=$(this).attr("name");
+				sessionSelectId=id;
+				sessionSelectName=name;
+				 var group = "input:checkbox[class='sessionSelectCheckClass']";
+				 $(group).prop("checked",false);
+				 $(this).prop("checked",true);
+				// alert(name+"              "+id)
+				$("#selectSessionButton").attr("disabled",false);
+            	 });
+
+
 
             adjustments();
         	 $("body").on("dblclick","#showRecs1 tr",function(){

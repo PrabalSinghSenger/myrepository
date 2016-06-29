@@ -5,7 +5,7 @@
 <head>
 	<%String ctxPath=request.getContextPath();%>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>${teamBean.comment } Admin Panel</title>
+	<title>Setting Transaction Admin Panel</title>
 	<link rel="stylesheet" href="<%=ctxPath%>/css/datatables.min.css" type="text/css">
     <link rel="stylesheet" href="<%=ctxPath%>/css/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="<%=ctxPath%>/css/font-awesome.min.css" type="text/css"/>
