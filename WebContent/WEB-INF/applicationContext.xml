@@ -25,6 +25,8 @@
 				<value>com.betsafe.pojo.TeamEntryPojo</value>
 				<value>com.betsafe.pojo.BetPlaceMasterPojo</value>
 			    <value>com.betsafe.pojo.MatchSessionMasterPojo</value>
+			      <value>com.betsafe.pojo.MatchBetSessionMasterPojo2</value>
+			      <value>com.betsafe.pojo.TeamRateEntryPojo</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

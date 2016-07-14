@@ -175,7 +175,7 @@ var rateNowMatchId=0;
 var rateNowMatchName="";
 
 $(document).ready(function(){
-
+	getTeamRate();
 
 /* 		$("body").on("click","#inplayPrime tr",function(){
 			var rateNowMatchName=$(this).attr("title");
@@ -277,6 +277,21 @@ function getBetRejectList(){
 		data:"userId:1011",
 		success:function(data){
 			//alert("Success : "+data);
+
+		},
+		error:function(data){alert("Error : "+data)}
+
+	});
+}
+
+
+function getTeamRate(){
+	$.ajax({
+		type:"get",
+		url:"getTeamRateForMatch",
+		data:{"teamId":22, "teamName":"Ind"},
+		success:function(data){
+			alert("Success : "+data);
 
 		},
 		error:function(data){alert("Error : "+data)}

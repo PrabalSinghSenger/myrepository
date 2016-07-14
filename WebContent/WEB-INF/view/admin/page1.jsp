@@ -189,12 +189,12 @@
                             <span style='width: 100%;display: block;'>Auto accept session bids <input type="checkbox" style="float: right;"></span> -->
 							</div>
 							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
-							<div class="box3" style='float: right; width: 160px; border: 1px solid #d5d5d5;'>
+							<!-- <div class="box3" style='float: right; width: 160px; border: 1px solid #d5d5d5;'>
 									 <span class="fllt"	style='float: left; display: block; width: 45px; height: 25px; margin: 3px 0px;'>AVG L</span>
 									 <input class="form-control blueBkCol" style='float: left; width: 95px; height: 25px; margin: 3px 0px;' name='avgLgi' type="number" step="0.01" />
 									 <span style='float: left; display: block; width: 45px; height: 25px; margin: 3px 0px;'>AVG K</span>
 									 <input class="form-control yellowBkCol"style='float: left; width: 95px; height: 25px; margin: 3px 0px;' name='avgKhi' type="number" step="0.01" />
-							</div>
+							</div> -->
 						</div>
 
 
@@ -471,7 +471,7 @@
                 </div>
                 <div class="bot">
                     <input class='form-control'  id="betRateEnter"  type="number" step="0.01"/>
-                    <input class='form-control'  id="betRateEnter"  type="text" />
+                    <input class='form-control'  id="betRateAmount  type="text" onblur="AutoChangeAmount(this.value,this.id);"/>
                     <select id="betMoodEnter" name="mode" class='form-control'>
                         <option value='L'>L</option>
                         <option value="K">K</option>
@@ -509,7 +509,7 @@
 
                     <input class='form-control'  id="sessionRateFormRateId"  name="sessionRateFormRate"  type="number" step="0.01"/>
                     <input class='form-control'  id="sessionRateFormRunsId"  name="sessionRateFormRuns"    type="number" step="1"/>
-                    <input class='form-control' id="sessionRateFormAmountId" name="sessionRateFormAmount"  type="text"/>
+                    <input class='form-control' id="sessionRateFormAmountId" name="sessionRateFormAmount"  onblur="AutoChangeAmount(this.value,this.id);"  type="text"/>
                     <select name="sessionRateFormYesNoLabel"  id="YesNoLabel" class='form-control'>
                         <option value="yes">Yes</option>
                         <option value="no">No</option>
@@ -519,7 +519,7 @@
                     	   <option value="${user.userId }">${user.userName }-(${user.userId })</option>
                    		 </c:forEach>
                     </select>
-                     <input class='form-control' id="sessionRateFormSessionId"  name="sessionRateFormSessionId" type="hidden"/>
+                     <input class='form-control' id="sessionRateFormSessionId"  name="sessionRateFormSessionName" type="hidden"/>
                       </form>
                     <button id="sessionRateFormOkBtn" onclick="enterSessionBetRate();" disabled="disabled" class="btn btn-primary">OK</button>
                     <button class="btn btn-primary" >View Trns</button>
@@ -570,23 +570,8 @@
         			<thead>
         				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
         			</thead>
-        			<tbody>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
-        				<tr><th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><td>Decline</th></tr>
+        			<tbody id="adminrightpanelTbody">
+
         			</tbody>
         		</table>
         	</div>
@@ -594,7 +579,7 @@
         <!-- <span id='showOverlayBtn' class='showBtn' onclick='showHideOverlay(1)'><i class='fa fa-chevron-left'></i></span> -->
         <div id='adminOverlayPanel'>
         	<!-- <span class='hideBtn' onclick='showHideOverlay(0)'><i class='fa fa-chevron-right'></i></span> -->
- 	      	<div class='adminOverlayPanelTblDiv'>
+ 	      	<!-- <div class='adminOverlayPanelTblDiv'>
         		<table class='table table-striped table-bordered ' style='margin:0px;'>
         			<tr>
         				<td>India 1st ODI</td>
@@ -620,7 +605,7 @@
        					</td>
         			</tr>
        			</table>
-        	</div>
+        	</div> -->
         	<div class='adminOverlayPanelTblDiv2'>
         		<table class='table table-striped table-bordered' style='margin:0px;'>
         			<tr>
@@ -913,26 +898,32 @@
 			</div>
 		</div>
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+		<form  method="get" class="submitMatchRate" name="${ teamBean.team_1 }_${ teamBean.teamId }"  id="${ teamBean.team_1 }_${ teamBean.teamId }">
+		<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number" step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+						<input class="blueCol" id="Lagai1_${ teamBean.team_1 }_${ teamBean.teamId }" min="0.0" name="Lagai1" type="number"  step="0.1"   value="0.00" onchange="changeValue(this.id,this.value);" style="height: 100%;width: 100%;border: none;text-align: center;">
+					</span>
 				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				 <div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;'>
+                           <input class="blueCol"  id="Lagai2_${ teamBean.team_1 }_${ teamBean.teamId }"  name="Lagai2"  type="number" step='0.2'  value="0.00"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                     </span>
 				</div>
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+                      <input class="pinkCol"  id="Khai1_${ teamBean.team_1 }_${ teamBean.teamId }"  name="Khai2"   type="number" step='0.1'   value="0.00"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;'>
+					   <input class="pinkCol"  id="Khai2_${ teamBean.team_1 }_${ teamBean.teamId }"  name="Khai1"   type="number"  step='0.2'  value="0.00"   onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
 				</div>
 			</div>
+			</form>
 		</div>
        </c:if>
 
@@ -945,26 +936,34 @@
 			</div>
 		</div>
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+		<form onsubmit="submitMatchRate();" class="submitMatchRate" name="${ teamBean.team_2 }_${ teamBean.teamId }"  id="${ teamBean.team_2 }_${ teamBean.teamId }">
+		<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+						<input class="blueCol" id="Lagai1_${ teamBean.team_2 }_${ teamBean.teamId }" name="Lagai1" type="number" step='0.1'  value="0.0" onchange="changeValue(this.id,this.value);" style="height: 100%;width: 100%;border: none;text-align: center;">
+					</span>
 				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				 <div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;'>
+                           <input class="blueCol"  id="Lagai2_${ teamBean.team_2 }_${ teamBean.teamId }"  name="Lagai2"  type="number" step='0.2'  value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                     </span>
 				</div>
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+					<input class="pinkCol"  id="Khai2_${ teamBean.team_2 }_${ teamBean.teamId }"  name="Khai2"   type="number" step='0.1'   value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+
+                    </span>
+
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;'>
+                         <input class="pinkCol"  id="Khai1_${ teamBean.team_2 }_${ teamBean.teamId }"  name="Khai1"   type="number"  step='0.2'  value="0.0"   onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
 				</div>
 			</div>
+			</form>
 		</div>
        </c:if>
 
@@ -977,26 +976,34 @@
 			</div>
 		</div>
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+		<form onsubmit="submitMatchRate();" class="submitMatchRate" name="${ teamBean.team_3 }_${ teamBean.teamId }"  id="${ teamBean.team_3 }_${ teamBean.teamId }">
+		<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+						<input class="blueCol" id="Lagai1_${ teamBean.team_3 }_${ teamBean.teamId }" name="Lagai1" type="number" step='0.1'  value="0.0" onchange="changeValue(this.id,this.value);" style="height: 100%;width: 100%;border: none;text-align: center;">
+					</span>
 				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				 <div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;'>
+                           <input class="blueCol"  id="Lagai2_${ teamBean.team_3 }_${ teamBean.teamId }"  name="Lagai2"  type="number" step='0.2'  value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                     </span>
 				</div>
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+					<input class="pinkCol"  id="Khai2_${ teamBean.team_3 }_${ teamBean.teamId }"  name="Khai2"   type="number" step='0.1'   value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+
+                    </span>
+
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;'>
+                         <input class="pinkCol"  id="Khai1_${ teamBean.team_3 }_${ teamBean.teamId }"  name="Khai1"   type="number"  step='0.2'  value="0.0"   onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
 				</div>
 			</div>
+			</form>
 		</div>
        </c:if>
 
@@ -1009,26 +1016,34 @@
 			</div>
 		</div>
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+		<form onsubmit="submitMatchRate();" class="submitMatchRate" name="${ teamBean.team_4 }_${ teamBean.teamId }"  id="${ teamBean.team_4 }_${ teamBean.teamId }">
+		<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+						<input class="blueCol" id="Lagai1_${ teamBean.team_4 }_${ teamBean.teamId }" name="Lagai1" type="number" step='0.1'  value="0.0" onchange="changeValue(this.id,this.value);" style="height: 100%;width: 100%;border: none;text-align: center;">
+					</span>
 				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				 <div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;'>
+                           <input class="blueCol"  id="Lagai2_${ teamBean.team_4 }_${ teamBean.teamId }"  name="Lagai2"  type="number" step='0.2'  value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                     </span>
 				</div>
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+					<input class="pinkCol"  id="Khai2_${ teamBean.team_4 }_${ teamBean.teamId }"  name="Khai2"   type="number" step='0.1'   value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+
+                    </span>
+
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;'>
+                         <input class="pinkCol"  id="Khai1_${ teamBean.team_4 }_${ teamBean.teamId }"  name="Khai1"   type="number"  step='0.2'  value="0.0"   onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
 				</div>
 			</div>
+			</form>
 		</div>
        </c:if>
 
@@ -1041,24 +1056,30 @@
 			</div>
 		</div>
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+		<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+						<input class="blueCol" id="Lagai1_${ teamBean.team_5 }_${ teamBean.teamId }" name="Lagai1" type="number" step='0.1'  value="0.0" onchange="changeValue(this.id,this.value);" style="height: 100%;width: 100%;border: none;text-align: center;">
+					</span>
 				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				 <div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;'>
+                           <input class="blueCol"  id="Lagai2_${ teamBean.team_5 }_${ teamBean.teamId }"  name="Lagai2"  type="number" step='0.2'  value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                     </span>
 				</div>
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+					<input class="pinkCol"  id="Khai2_${ teamBean.team_5 }_${ teamBean.teamId }"  name="Khai2"   type="number" step='0.1'   value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+
+                    </span>
+
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;'>
+                         <input class="pinkCol"  id="Khai1_${ teamBean.team_5 }_${ teamBean.teamId }"  name="Khai1"   type="number"  step='0.2'  value="0.0"   onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
 				</div>
 			</div>
 		</div>
@@ -1073,24 +1094,30 @@
 			</div>
 		</div>
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+		<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+						<input class="blueCol" id="Lagai1_${ teamBean.team_6 }_${ teamBean.teamId }" name="Lagai1" type="number" step='0.1'  value="0.0" onchange="changeValue(this.id,this.value);" style="height: 100%;width: 100%;border: none;text-align: center;">
+					</span>
 				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				 <div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;'>
+                           <input class="blueCol"  id="Lagai2_${ teamBean.team_6 }_${ teamBean.teamId }"  name="Lagai2"  type="number" step='0.2'  value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                     </span>
 				</div>
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+					<input class="pinkCol"  id="Khai2_${ teamBean.team_6 }_${ teamBean.teamId }"  name="Khai2"   type="number" step='0.1'   value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+
+                    </span>
+
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;'>
+                         <input class="pinkCol"  id="Khai1_${ teamBean.team_6 }_${ teamBean.teamId }"  name="Khai1"   type="number"  step='0.2'  value="0.0"   onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
 				</div>
 			</div>
 		</div>
@@ -1105,24 +1132,30 @@
 			</div>
 		</div>
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+		<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+						<input class="blueCol" id="Lagai1_${ teamBean.team_7 }_${ teamBean.teamId }" name="Lagai1" type="number" step='0.1'  value="0.0" onchange="changeValue(this.id,this.value);" style="height: 100%;width: 100%;border: none;text-align: center;">
+					</span>
 				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				 <div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;'>
+                           <input class="blueCol"  id="Lagai2_${ teamBean.team_7 }_${ teamBean.teamId }"  name="Lagai2"  type="number" step='0.2'  value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                     </span>
 				</div>
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+					<input class="pinkCol"  id="Khai2_${ teamBean.team_7 }_${ teamBean.teamId }"  name="Khai2"   type="number" step='0.1'   value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+
+                    </span>
+
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;'>
+                         <input class="pinkCol"  id="Khai1_${ teamBean.team_7 }_${ teamBean.teamId }"  name="Khai1"   type="number"  step='0.2'  value="0.0"   onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
 				</div>
 			</div>
 		</div>
@@ -1137,24 +1170,30 @@
 			</div>
 		</div>
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+		<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+						<input class="blueCol" id="Lagai1_${ teamBean.team_8 }_${ teamBean.teamId }" name="Lagai1" type="number" step='0.1'  value="0.0" onchange="changeValue(this.id,this.value);" style="height: 100%;width: 100%;border: none;text-align: center;">
+					</span>
 				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				 <div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;'>
+                           <input class="blueCol"  id="Lagai2_${ teamBean.team_8 }_${ teamBean.teamId }"  name="Lagai2"  type="number" step='0.2'  value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                     </span>
 				</div>
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+					<input class="pinkCol"  id="Khai2_${ teamBean.team_8 }_${ teamBean.teamId }"  name="Khai2"   type="number" step='0.1'   value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+
+                    </span>
+
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;'>
+                         <input class="pinkCol"  id="Khai1_${ teamBean.team_8 }_${ teamBean.teamId }"  name="Khai1"   type="number"  step='0.2'  value="0.0"   onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
 				</div>
 			</div>
 		</div>
@@ -1169,24 +1208,30 @@
 			</div>
 		</div>
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+		<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+						<input class="blueCol" id="Lagai1_${ teamBean.team_9 }_${ teamBean.teamId }" name="Lagai1" type="number" step='0.1'  value="0.0" onchange="changeValue(this.id,this.value);" style="height: 100%;width: 100%;border: none;text-align: center;">
+					</span>
 				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				 <div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;'>
+                           <input class="blueCol"  id="Lagai2_${ teamBean.team_9 }_${ teamBean.teamId }"  name="Lagai2"  type="number" step='0.2'  value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                     </span>
 				</div>
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+					<input class="pinkCol"  id="Khai2_${ teamBean.team_9 }_${ teamBean.teamId }"  name="Khai2"   type="number" step='0.1'   value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+
+                    </span>
+
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;'>
+                         <input class="pinkCol"  id="Khai1_${ teamBean.team_9 }_${ teamBean.teamId }"  name="Khai1"   type="number"  step='0.2'  value="0.0"   onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
 				</div>
 			</div>
 		</div>
@@ -1201,24 +1246,30 @@
 			</div>
 		</div>
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+		<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+						<input class="blueCol" id="Lagai1_${ teamBean.team_10 }_${ teamBean.teamId }" name="Lagai1" type="number" step='0.1'  value="0.0" onchange="changeValue(this.id,this.value);" style="height: 100%;width: 100%;border: none;text-align: center;">
+					</span>
 				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				 <div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;'>
+                           <input class="blueCol"  id="Lagai2_${ teamBean.team_10 }_${ teamBean.teamId }"  name="Lagai2"  type="number" step='0.2'  value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                     </span>
 				</div>
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+					<input class="pinkCol"  id="Khai2_${ teamBean.team_10 }_${ teamBean.teamId }"  name="Khai2"   type="number" step='0.1'   value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+
+                    </span>
+
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;'>
+                         <input class="pinkCol"  id="Khai1_${ teamBean.team_10 }_${ teamBean.teamId }"  name="Khai1"   type="number"  step='0.2'  value="0.0"   onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
 				</div>
 			</div>
 		</div>
@@ -1233,30 +1284,68 @@
 			</div>
 		</div>
 		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
-			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+		<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
 				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+						<input class="blueCol" id="Lagai1_${ teamBean.team_11 }_${ teamBean.teamId }" name="Lagai1" type="number" step='0.1'  value="0.0" onchange="changeValue(this.id,this.value);" style="height: 100%;width: 100%;border: none;text-align: center;">
+					</span>
 				</div>
-				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="blueCol" type="number"  step='0.1'  value="0.0"  style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="blueCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+				 <div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;'>
+                           <input class="blueCol"  id="Lagai2_${ teamBean.team_11 }_${ teamBean.teamId }"  name="Lagai2"  type="number" step='0.2'  value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                     </span>
 				</div>
 			</div>
 			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+					<input class="pinkCol"  id="Khai2_${ teamBean.team_11 }_${ teamBean.teamId }"  name="Khai2"   type="number" step='0.1'   value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
 				</div>
 				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
-					<span style='display: block;text-align: center;font-weight: bold;'><input class="pinkCol" type="number"  step='0.1'  value="0.0"   style="height: 100%;width: 100%;border: none;text-align: center;"> </span>
-					<span style='display: block;text-align: center;'><input class="pinkCol" type="number" step='1'  style="height: 100%;width: 100%;border: none;text-align: center;"></span>
+					<span style='display: block;text-align: center;'>
+                         <input class="pinkCol"  id="Khai1_${ teamBean.team_11 }_${ teamBean.teamId }"  name="Khai1"   type="number"  step='0.2'  value="0.0"   onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
 				</div>
 			</div>
 		</div>
        </c:if>
-
 	   <c:if test="${not empty teamBean.team_12 }">
+		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
+			<div style='float: left;'>${ teamBean.team_12 }</div>
+			<div style='float:right;'>
+				<i class="fa fa-refresh" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+				<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
+			</div>
+		</div>
+		<div style='width:100%;height:32px;background:#fff;padding: 0px;position: relative;'>
+		<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;'>
+				<div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+						<input class="blueCol" id="Lagai1_${ teamBean.team_12 }_${ teamBean.teamId }" name="Lagai1" type="number" step='0.1'  value="0.0" onchange="changeValue(this.id,this.value);" style="height: 100%;width: 100%;border: none;text-align: center;">
+					</span>
+				</div>
+				 <div class="blueCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;'>
+                           <input class="blueCol"  id="Lagai2_${ teamBean.team_12 }_${ teamBean.teamId }"  name="Lagai2"  type="number" step='0.2'  value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                     </span>
+				</div>
+			</div>
+			<div style='float:left;width:auto;height:100%;padding: 0px;color: #fff;margin-left: 40px'>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;font-weight: bold;'>
+					<input class="pinkCol"  id="Khai2_${ teamBean.team_12 }_${ teamBean.teamId }"  name="Khai2"   type="number" step='0.1'   value="0.0"  onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
+				</div>
+				<div class="pinkCol" style='display:block;width:65px;float:left;border-right: 1px solid #000;'>
+					<span style='display: block;text-align: center;'>
+                         <input class="pinkCol"  id="Khai1_${ teamBean.team_12 }_${ teamBean.teamId }"  name="Khai1"   type="number"  step='0.2'  value="0.0"   onchange="changeValue(this.id,this.value);"   style="height: 100%;width: 100%;border: none;text-align: center;">
+                    </span>
+				</div>
+			</div>
+		</div>
+       </c:if>
+	 <%--   <c:if test="${not empty teamBean.team_12 }">
 		<div style='width:100%;height:18px;background:#353535;padding: 0px 5px;color:#fff;'>
 			<div style='float: left;'>${ teamBean.team_12 }</div>
 			<div style='float:right;'>
@@ -1286,10 +1375,15 @@
 				</div>
 			</div>
 		</div>
-       </c:if>
+       </c:if> --%>
+<div style="width: 100%;height: 100%;margin: 5px;text-align: center;">
+							<button class='btn btn-default'>Show</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        					<button class='btn btn-default'>Don't Show</button>
+
+</div>
 </div>
 		<div style='width: 25%;height:calc(100% - 40px);float: left;'>
-			<textarea rows="" cols="" style='width:100%;height:100%' maxlength="300"></textarea>
+			<textarea rows="" id="teamRateComment" cols="" style='width:100%;height:100%' maxlength="300"></textarea>
 		</div>
 	</div>
 </div>
@@ -1303,9 +1397,17 @@
  	<script src="<%=ctxPath%>/js/bootstrap.min.js" type="text/javascript"></script>
  	<script src="<%=ctxPath%>/js/global.js" type="text/javascript"></script>
     <script type="text/javascript">
+    
+    function submitMatchRate(){
+    	alert("call");
+    }
+   
+ 
+    
     $(function() {
     	$( ".adminOverlayPanelTblDiv,.adminOverlayPanelTblDiv2" ).draggable();
     });
+    
     function minimizeWindow(obj){
     	$("#headerPopupInner").slideToggle();
     	$("#headerPopup").height("auto");
@@ -1380,7 +1482,7 @@
         }
 
         function enterSessionBetRate(){
-        	alert( $("#sessionRateForm").serialize());
+        	//alert( $("#sessionRateForm").serialize());
         	$.ajax({
     		    type: "get",
     		    async :false,
@@ -1395,16 +1497,109 @@
     		});
         }
 
+        function AutoChangeAmount(val,id1){
+        	var amount=0;
+        	// alert(id1);
+        	if(val.contains("t")|| val.contains("T")){
+
+        	var valAmt=val.replace("t","").replace("T","");
+        	    amount=parseInt(valAmt)*10000;
+        	}
+        	else if(val.contains("l")|| val.contains("L")){
+        	var valAmt=val.replace("l","").replace("L","");
+        	    amount=parseInt(valAmt)*100000;
+        	}
+        	else  if(val.contains("M")|| val.contains("m")){
+        	var valAmt=val.replace("M","").replace("m","");
+        	    amount=parseInt(valAmt)*10000000;
+        	}
+        	else{
+        	amount=val;
+        	}
+        	// alert(amount);
+        	document.getElementById(id1.toString()).value=amount;
+        	}
+
+        function changeValue(thisid,thisVal){
+        	var teamName=thisid.split("_")[1];
+        	var teamId=thisid.split("_")[2];
+
+        	//$("#Lagai1_"+teamId).stepUp(1);
+               // alert(thisid+"             "+thisVal);
+                var Lvalue=parseFloat(thisVal);
+                var Kvalue=parseFloat(Lvalue)+0.4;
+                $("#Lagai1_"+teamName+"_"+teamId).val(Lvalue);
+                $("#Lagai2_"+teamName+"_"+teamId).val(parseFloat(Lvalue)+0.2);
+                $("#Khai2_"+teamName+"_"+teamId).val(Kvalue);
+                $("#Khai1_"+teamName+"_"+teamId).val(parseFloat(Kvalue)+0.1);
+        }
 
         // for session select name and id
         var sessionSelectId="";
         var sessionSelectName="";
-
+        var DELAY = 700,clicks = 0,timer = null;
         $(document).ready(function(){
+        	 
+        	$('.submitMatchRate').keypress(function(e) {
+        	        if (e.keyCode == 13) {
+        	            e.preventDefault();
+        	           // document.forms.
+        	            var name= $(this).attr("name");
+        	            var comment=$("#teamRateComment").val();
+        	            alert($(this).attr("name")+"        comt="+comment)
+        	             
+        	           var lagai1= $("#Lagai1_"+name).val();
+        	            var lagai2= $("#Lagai2_"+name).val();
+        	            var khai2= $("#Khai2_"+name).val();
+        	            var khai1=$("#Khai1_"+name).val(); 
+        	            alert(lagai1+" @ "+lagai2+"   @ "+khai1+" @ "+khai2);
+                    	$.ajax({
+                		    type: "get",
+                		    async :false,
+                		    data:{"Khai2":khai2,"Khai1":khai1,"teamId":name.split("_")[1],"comment":comment,"teamName":name.split("_")[0],"Lagai1":lagai1,"Lagai2":lagai2},
+                		    url: "<%=ctxPath%>/putTeamRateForMatch",
+                		    success: function(data){
+                		    	alert("data="+data);
+                		    },
+                			error:function() {
+                				alert("Rate Not saved Please Try again.");
+                			}
+                		});
+        	        }
+        	    });
+        	
+        	
+        	
+
+        	    $("#showRecs1 tr").on("click", function(e){// alert($(this).attr("id"))
+        	        clicks++;  //count clicks
+        	        var thisObj=this;
+        	        if(clicks === 1) {
+        	            timer = setTimeout(function() {
+        	                alert('Single Click'); //perform single-click action
+        	                clicks = 0;  //after action performed, reset counter
+        	                modifyCurrentBet(thisObj);
+        	            }, DELAY);
+        	        } else {
+        	            clearTimeout(timer);  //prevent single-click action
+        	          //  alert('Double Click');  //perform double-click action
+        	            clicks = 0;  //after action performed, reset counter
+        	            showIndividualRateModel();
+        	        }
+        	    })
+        	    .on("dblclick", function(e){
+        	        e.preventDefault();  //cancel system double-click event
+        	        showIndividualRateModel();
+        	    });
 
 
-			/* For select session checkbox like radio button for rate  */
-        	 $("body").on("click",".sessionSelectCheckClass",function(){
+            $('.blueCol').bind('click keyup', function(){
+                    var val=0.0;
+                    val=parseFloat($(this).val())+0.2;
+            });
+
+        /* For select session checkbox like radio button for rate  */
+        $("body").on("click",".sessionSelectCheckClass",function(){
 				var id=$(this).attr("id").replace("CHk","");
 				var name=$(this).attr("name");
 				sessionSelectId=id;
@@ -1412,19 +1607,19 @@
 				 var group = "input:checkbox[class='sessionSelectCheckClass']";
 				 $(group).prop("checked",false);
 				 $(this).prop("checked",true);
-				// alert(name+"              "+id)
-				$("#selectSessionButton").attr("disabled",false);
-            	 });
+				 $("#selectSessionButton").attr("disabled",false);
+         });
 
 
 
             adjustments();
-        	 $("body").on("dblclick","#showRecs1 tr",function(){
-
-        	 alert($(this).attr("id"))
+        	/*  $("body").on("dblclick","#showRecs1 tr",function(){
         		 $('#individualReport').modal();
      			$('#individualReport').modal('show');
-        	 });
+        	 }); */
+
+
+    
 
             $("#showRecs1x tr").click(function(){
             	$("#editUserData").toggle("");
@@ -1450,19 +1645,34 @@
             	//alert($(this).attr("id").split("_")[1]+"      tdbetType="+tdbetType)
             });
         });
+        
+        function modifyCurrentBet(thisobj){
+        	 alert(thisobj);
+        	   alert($(thisobj).attr("id"));
+        }
+        
+        
+        
+        
+        function showIndividualRateModel(){
+            $('#individualReport').modal();
+  			$('#individualReport').modal('show');
+        }
+        
+        
+        
         $(window).load(function(){
     		$(".adminMnu").removeClass("active");
         	$("#adminPage1").addClass("active");
+        	crateBetAdminHtml();
     	});
 
         function EnterBetAmountByAdmin(){
-        	//alert("call")
         	var teamId=$("#teamIdEnterAMt").val();
         	var mode=$("#betMoodEnter").val();
         	var betRate=$("#betRateEnter").val();
         	var team1Amt=$("#team1EnterAmount").val();
         	var team2Amt=$("#team2EnterAmount").val();
-        	//alert(teamId+"    mode="+mode+"   "+betRate+"   "+team1Amt+"   "+team2Amt)
         	$.ajax({
     		    type: "post",
     		    async :false,
@@ -1482,21 +1692,20 @@
 			var sessionCreateMatchId=$("#sessionCreateMatchId").val();
 			var sessionCreateCommentId=$("#sessionCreateCommentId").val();
 			var sessionCreateMeterId=$("#sessionCreateMeterId").val();
-			alert(sessionCreateCommentId+"           "+sessionCreateMatchId);
+			//alert(sessionCreateCommentId+"           "+sessionCreateMatchId);
       //  alert($("#sessionCreateForm").serialize())
-       $.ajax({
-		    type: "post",
-		    async :false,
-		    data:{"matchId":sessionCreateMatchId,"comment":sessionCreateCommentId,"meter":sessionCreateMeterId},
-		    url: "<%=ctxPath%>/createSessionForMatch",
-		    success: function(data){
-		    	alert(data);
-		    },
-			error:function() {
-				alert("Session Not Created Please Try again.");
-
-			}
-		});
+	       $.ajax({
+			    type: "post",
+			    async :false,
+			    data:{"matchId":sessionCreateMatchId,"comment":sessionCreateCommentId,"meter":sessionCreateMeterId},
+			    url: "<%=ctxPath%>/createSessionForMatch",
+			    success: function(data){
+			    	alert(data);
+			    },
+				error:function() {
+					alert("Session Not Created Please Try again.");
+				}
+			});
         }
 
       function  getSessionMatchList(){
@@ -1550,6 +1759,85 @@
 
       }
 
+
+    </script>
+    <!-- This script for Admin Bet Accept and Show -->
+    <script type="text/javascript">
+    window.setInterval(crateBetAdminHtml, 300000);
+
+    function crateBetAdminHtml(){
+    	$("#acceptAdminHtml").html("");
+		$("#adminrightpanelTbody").html("");
+   		$.ajax({
+    	    type: "post",
+    	    async:false,
+    	    url: "<%=ctxPath%>/getUserBet",
+    	    success: function(data){//alert(data)
+    	    	var jsonParseData=JSON.parse(data);
+    	    	var keys=Object.keys(jsonParseData);
+    	    	for(var i=0;i<keys.length;i++){//alert(keys[i])
+
+    	    		if(keys[i]=="UserMap" ){}
+    	    		else if(keys[i]=="teamMap"){}
+    	    		else{
+					var betStr=jsonParseData[keys[i]];
+					var parsedBetStr=JSON.parse(betStr);
+					var teamName=JSON.parse(jsonParseData["teamMap"]);
+					var userName=JSON.parse(jsonParseData["UserMap"]);
+					//alert(jsonParseData["UserMap"])
+					//alert(parsedBetStr['userId'])
+						//alert(JSON.parse(jsonParseData["UserMap"])[parsedBetStr['userId']])
+					createBetHtml(parsedBetStr,keys.length,i,userName[parsedBetStr['userId']],teamName[parsedBetStr['matchId']]);
+    	    		}
+    	    	}
+    	    },
+    		error:function() {
+    			alert("Sorry No User Exist with this  Id.");
+    		}
+    	});
+    }
+
+
+
+    function createBetHtml(betStr,length,i,userName,teamName){//alert("call")
+  	    var html="";
+         html+="<tr id='"+betStr['betId']+"'>";
+    	 html+="<th>"+i+"</th>";
+    	 html+="<th>"+betStr['betRate']+"</th>";
+    	 html+="<th>"+betStr['betAmount']+"</th>";
+    	 html+="<th>"+betStr['betType']+"</th>";
+    	 html+="<th>"+betStr['onTeam']+"-("+teamName+")</th>";
+    	 html+=" <th>"+userName+"-"+betStr['userId']+"</th>";
+    	 html+="<th>100000</th>";
+    	 html+="<th>100089</th>";
+     	 html+="<th><button id='accept_"+betStr['betId']+"' class='btn btn-active btn-primary' onclick='acceptBetByAdmin(this.id)'>Accept</button></th>";
+   		 html+="<th><button  id='reject_"+betStr['betId']+"'  onclick='acceptBetByAdmin(this.id)' class='btn btn-active btn-danger'>Reject</button></th>";
+    	 html+="<tr>";
+			$("#adminrightpanelTbody").append(html);
+    }
+
+    function acceptBetByAdmin(id){
+
+    	$.ajax({
+    	    type: "post",
+    	    data:  {'betId':id.split("_")[1], 'action':id.split("_")[0]},
+    	    url: "<%=ctxPath%>/acceptBetByAdmin",
+    	    success: function(data){
+    	    	if(id.split("_")[0]=="reject"){
+    	    		$("#accept_"+id.split("_")[1]).attr("disabled","true");
+    	    		$("#"+id).attr("disabled","true");
+    	    	}else{
+    	    		$("#reject_"+id.split("_")[1]).attr("disabled","true");
+        	    	$("#"+id).attr("disabled","true");
+    	    	}
+
+    	    	},
+    		error:function() {
+    			alert("Sorry No   Id.");
+
+    		}
+    	});
+    }
 
     </script>
 </html>
