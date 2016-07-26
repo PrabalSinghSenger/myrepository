@@ -1,8 +1,7 @@
 <%
-HttpSession sessionObj=request.getSession(false);
-System.out.println("ses id="+sessionObj.getId());
-String userType=(String)sessionObj.getAttribute("userType");
-String userId=(String)sessionObj.getAttribute("userId");
+System.out.println("ses id="+session.getId());
+String userType=(String)session.getAttribute("userType");
+String userId=(String)session.getAttribute("userId");
 System.out.println("@@@@@@@@@@@@@@@@@@@@@   userId="+userId);
 %>
 <style type="text/css">
@@ -160,7 +159,7 @@ System.out.println("@@@@@@@@@@@@@@@@@@@@@   userId="+userId);
     float: left;
     padding: 3px;
 }
-#betSlipData{padding: 10px;max-height: 240px;overflow: auto;}
+#betSlipData{padding: 10px;max-height: 240px;}
 #betSlipData>div{margin: 6px 0px;}
 #betSlipData>div>div:first-child{
 	height: 30px;
@@ -200,7 +199,7 @@ System.out.println("@@@@@@@@@@@@@@@@@@@@@   userId="+userId);
 		<div id='betSlip'>
 			<div><span>Your Selections</span><span>Odds</span><span>Stake</span></div>
 			<form id="betForm">
-			<input type='hidden' name='HiddenUserIdForm' id='HiddenUserIdForm' value='${userId }'>
+			<input type='hidden' name='HiddenUserIdForm' id='HiddenUserIdForm' value="<%=userId%>">
 			<div id='betSlipData'>
 			</div>
 			</form>
@@ -236,7 +235,7 @@ if($("#confirmBetCheckBox"). prop("checked") == true){
 
 function placeBet(){
 
-	//alert($('#betForm').serialize())
+	alert($('#betForm').serialize())
 	$.ajax({
 	    type: "post",
 

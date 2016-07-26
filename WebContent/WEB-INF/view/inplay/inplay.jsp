@@ -95,8 +95,10 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 								<i class="fa fa-plus mainCatg" style='cursor:pointer;color: #000;margin: 0px 3px;'></i>
 								<span>Match</span>
 								<div class="col-xs-12 rmpm subSubCatg" style='padding-left: 20px;display:none;'>
-									<c:forEach var="team" items="${matchList}">
-									<span id="${team.teamId }" style="display: block;">${team.comment }</span>
+									<c:forEach var="team" items="${teamList}">
+									<span id="${team.teamId }" onclick="loadMatchInplay(this.id)" style="display: block;">${team.comment }</span>
+									<span id="111_${team.teamId }" onclick="inplayByMatchId()" style="display: block;">xxx=${team.comment }</span>
+									
 									</c:forEach>
 								</div>
 							</div>
@@ -114,7 +116,9 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 				</div>
 			</div>
 		</div>
-		<div class='col-xs-8'>
+		<div class='col-xs-8' id="appendInplayData">
+		</div>
+		<%-- <div class='col-xs-8' style="display: none;">
 
 		  <!-- Nav tabs -->
 		  <ul class="nav nav-tabs" role="tablist">
@@ -160,6 +164,7 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 		  </div>
 
 		</div>
+	 --%>
 	</div>
 	<div class="footerContainer"><jsp:include page="footer.jsp"></jsp:include> </div>
 </div>
@@ -192,7 +197,7 @@ $(document).ready(function(){
 	});
 
 	getBetRejectList();
-	$(".TeamRateSpanClass").click(function(){//alert("call       "+this.id.split("_")[2])
+/* 	$(".TeamRateSpanClass").click(function(){alert("call  123     "+this.id.split("_")[2])
 		var teamName=$(this).attr("title");
 		var teamId=this.id.split("_")[3];
 		var betMode=this.id.split("_")[2];
@@ -229,9 +234,9 @@ $(document).ready(function(){
 		//alert(exist);
 		inplaySlip(this.id,items);
 
-	});
+	});*/
 });
-
+/*
 function createHtmlForBetPlace(teamName,teamId,matchName,betAdminAmt,items,betMode){
 	var html='';
 	//for(var i=0;i<items;i++){
@@ -245,7 +250,7 @@ function createHtmlForBetPlace(teamName,teamId,matchName,betAdminAmt,items,betMo
 		html+="</div><hr style='margin:15px 0px 10px 0px;border: 0;border-top: 1px solid #eee;'></div>";
 
 	return html;
-}
+} */
 
 function closeParentDiv(divId){alert(divId)
 	$("#div"+divId.split('-')[1]).remove();
@@ -291,13 +296,45 @@ function getTeamRate(){
 		url:"getTeamRateForMatch",
 		data:{"teamId":22, "teamName":"Ind"},
 		success:function(data){
-			alert("Success : "+data);
+			//alert("Success : "+data);
 
 		},
 		error:function(data){alert("Error : "+data)}
 
 	});
 }
+
+
+function inplayByMatchId(){
+	$.ajax({
+		type:"post",
+		url:"inplayByMatchId",
+		data:{"teamId":22},
+		success:function(data){
+			alert("Success : "+data);
+			$("#appendInplayData").html(data);
+		},
+		error:function(data){alert("Error : "+data)}
+
+	});
+}
+
+
+function loadMatchInplay(ids){
+	alert(ids)
+	$.ajax({
+		type:"post",
+		url:"getTeamRatePageForMatchId",
+		data:{"teamId":ids},
+		success:function(data){
+			//alert("Success : "+data);
+
+		},
+		error:function(data){alert("Error : "+data)}
+
+	});
+}
+
 </script>
 </html>
 

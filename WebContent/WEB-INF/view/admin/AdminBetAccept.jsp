@@ -17,18 +17,19 @@
 	  <div class="col-xs-12 headerContainer"><jsp:include page="header.jsp"></jsp:include></div>
 	<div class="col-xs-12 contentContainer">
 	<div class="col-xs-10">
-	<div class='col-xs-12 tblDiv'>
-	<table id='adminBetAcpt' class='table' style="width:100%;">
-	<thead>
-	<tr>
-		<th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><th>Decline</th>
-	</tr>
-	</thead>
-	<tbody id="CurrentBetAdminPanel">
-	</tbody>
-	</table>
+		<div class='col-xs-12 tblDiv'>
+		<table id='adminBetAcpt' class='table' style="width:100%;">
+		<thead>
+		<tr>
+			<th>Sno</th><th>Rate</th><th>Amount</th><th>Mode</th><th>Fav</th><th>Name</th><th>Total Win</th><th>Total Loss</th><th>Accept</th><th>Decline</th>
+		</tr>
+		</thead>
+		<tbody id="CurrentBetAdminPanel">
+		</tbody>
+		</table>
+		</div>
 	</div>
-	</div>
+	
     </div>
     <div class="footerContainer"><jsp:include page="footer.jsp"></jsp:include> </div>
     </div>

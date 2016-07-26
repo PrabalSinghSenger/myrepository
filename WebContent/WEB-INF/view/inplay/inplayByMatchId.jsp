@@ -1,15 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<%String ctxPath=request.getContextPath();%>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link type="text/css" href="<%=ctxPath%>/css/datatables.min.css" rel="stylesheet">
-<link type="text/css" href="<%=ctxPath%>/css/bootstrap.min.css" rel="stylesheet" >
-<link type="text/css" href="<%=ctxPath%>/css/font-awesome.min.css" rel="stylesheet" >
-<link type="text/css" href="<%=ctxPath%>/css/mainLayout.css" rel="stylesheet" >
+<link type="text/css" href="<%=request.getContextPath()%>/css/datatables.min.css" rel="stylesheet">
+<link type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet" >
+<link type="text/css" href="<%=request.getContextPath()%>/css/font-awesome.min.css" rel="stylesheet" >
+<link type="text/css" href="<%=request.getContextPath()%>/css/mainLayout.css" rel="stylesheet" >
 <style>
 .active{background-color: #fff;}
 .table>thead:first-child>tr:first-child>td{
@@ -69,52 +63,6 @@ table thead{
 font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 .delBet:hover{color:red}
 </style>
-</head>
-<body>
-<div class='col-xs-12 rootContainer'>
-	<div class="col-xs-12 headerContainer"><jsp:include page="header.jsp"></jsp:include></div>
-	<div class="col-xs-12 contentContainer">
-		<div class='col-xs-2 rmpm' style='height: 100%;overflow: auto;box-shadow: 0px 0px 2px 0px #999;height: 100%;'>
-			<div class='col-xs-12 rmpm' style='height: 100%;'>
-				<div class="col-xs-12" style='height:20px;background:#353535;padding:3px;color:#fff;'>
-					<div style='float:left;'>
-						<i class="fa fa-minus" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-						<i class="fa fa-question" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-					</div>
-					<div style='float: left;padding-left: 20px'>INDIA</div>
-					<div style='float:right;'>
-						<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
-					</div>
-				</div>
-				<div class="col-xs-12 rmpm">
-					<div class="col-xs-12 rmpm">
-						<i class="fa fa-plus  mainCatg" style='cursor:pointer;color: #000;margin: 0px 3px;'></i>
-						<span>Cricket</span>
-						<div class="col-xs-12 rmpm subCatg" style='padding-left: 10px;display:none'>
-							<div class="col-xs-12 rmpm">
-								<i class="fa fa-plus mainCatg" style='cursor:pointer;color: #000;margin: 0px 3px;'></i>
-								<span>Match</span>
-								<div class="col-xs-12 rmpm subSubCatg" style='padding-left: 20px;display:none;'>
-									<c:forEach var="team" items="${matchList}">
-									<span id="${team.teamId }" style="display: block;">${team.comment }</span>
-									</c:forEach>
-								</div>
-							</div>
-							<div class="col-xs-12 rmpm">
-								<i class="fa fa-plus mainCatg" style='cursor:pointer;color: #000;margin: 0px 3px;'></i>
-								<span>Session</span>
-								<div class="col-xs-12 rmpm subSubCatg" style='padding-left: 20px;display:none'>
-								   <c:forEach var="sesion" items="${sessionList}">
-									<span id="${sesion.sessionId }" style="display: block;">${sesion.sessionComment }</span>
-									</c:forEach>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class='col-xs-8'>
 
 		  <!-- Nav tabs -->
 		  <ul class="nav nav-tabs" role="tablist">
@@ -159,14 +107,11 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 		    <div role="tabpanel" class="tab-pane" id="upcomming">...</div>
 		  </div>
 
-		</div>
-	</div>
-	<div class="footerContainer"><jsp:include page="footer.jsp"></jsp:include> </div>
-</div>
-</body>
-<script src="<%=ctxPath%>/js/jquery-1.12.1.min.js" type="text/javascript"></script>
-<script src="<%=ctxPath%>/js/datatables.min.js" type="text/javascript"></script>
-<script src="<%=ctxPath%>/js/bootstrap.min.js" type="text/javascript"></script>
+		  
+		  
+<script src="<%=request.getContextPath()%>/js/jquery-1.12.1.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/js/datatables.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/js/bootstrap.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 var items=1;
 var exist=[];
@@ -175,7 +120,7 @@ var rateNowMatchId=0;
 var rateNowMatchName="";
 
 $(document).ready(function(){
-
+	getTeamRate();
 
 /* 		$("body").on("click","#inplayPrime tr",function(){
 			var rateNowMatchName=$(this).attr("title");
@@ -192,7 +137,7 @@ $(document).ready(function(){
 	});
 
 	getBetRejectList();
-	$(".TeamRateSpanClass").click(function(){//alert("call       "+this.id.split("_")[2])
+	$(".TeamRateSpanClass").click(function(){alert("call       "+this.id.split("_")[2])
 		var teamName=$(this).attr("title");
 		var teamId=this.id.split("_")[3];
 		var betMode=this.id.split("_")[2];
@@ -243,7 +188,7 @@ function createHtmlForBetPlace(teamName,teamId,matchName,betAdminAmt,items,betMo
 		html+="<input type='hidden' name='teamNameHidden"+items+"' id='teamNameHidden"+items+"' value='"+teamName+"' >";
 		html+="<span>Match Odds : "+teamName+" ("+betMode+")</span><span style='float:right;'>Rs <input style='width:85px' type='number'  step='0.01'  id='userBetAmt"+items+"'  name='userBetAmt"+items+"'  placeholder='Bet Amount'/></span>";
 		html+="</div><hr style='margin:15px 0px 10px 0px;border: 0;border-top: 1px solid #eee;'></div>";
-
+alert(html)
 	return html;
 }
 
@@ -283,7 +228,52 @@ function getBetRejectList(){
 
 	});
 }
+
+
+function getTeamRate(){
+	$.ajax({
+		type:"get",
+		url:"getTeamRateForMatch",
+		data:{"teamId":22, "teamName":"Ind"},
+		success:function(data){
+			//alert("Success : "+data);
+
+		},
+		error:function(data){alert("Error : "+data)}
+
+	});
+}
+
+
+function inplayByMatchId(){
+	$.ajax({
+		type:"post",
+		url:"inplayByMatchId",
+		data:{"teamId":22},
+		success:function(data){
+			alert("Success : "+data);
+			$("#appendInplayData").html(data);
+		},
+		error:function(data){alert("Error : "+data)}
+
+	});
+}
+
+
+function loadMatchInplay(ids){
+	alert(ids)
+	$.ajax({
+		type:"post",
+		url:"getTeamRatePageForMatchId",
+		data:{"teamId":ids},
+		success:function(data){
+			//alert("Success : "+data);
+
+		},
+		error:function(data){alert("Error : "+data)}
+
+	});
+}
+
 </script>
-</html>
-
-
+		  
