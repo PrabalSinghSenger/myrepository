@@ -90,12 +90,13 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 		    			<c:set var="j" value="1"></c:set>
 						<c:forEach var="i" items="${teamList}">
 							<tr id="tr${i.teamId }"  title="${i.comment }">
+							<input type="hidden"  class="TeamIdHolderClass" name="${i.team_1  }_${i.team_2  }"  value="${i.teamId }">
 								<td id="comment_${i.teamId  }">${i.comment }<input type="hidden" id="TeamId_${i.teamId }" value="${i.teamId }"></td>
-								<td   title="${i.comment }"><a id="team_one_L_${i.teamId  }"   class="TeamRateSpanClass" title="${i.team_1  }"  href='javascript:void(0);'>${i.team_1_LRate}</a></td>
-								<td   title="${i.comment }"><a id="team_one_K_${i.teamId  }"   class="TeamRateSpanClass" title="${i.team_1  }"  href='javascript:void(0);'>${i.team_1_KRate}</a></td>
-								<td   title="${i.comment }"><a id="team_Tie_${i.teamId  }"   class="TeamRateSpanClass" title="tied${i.comment  }"  href='javascript:void(0);'>${j*1 -1}</a></td>
-								<td   title="${i.comment }"><a id="team_two_L_${i.teamId  }"   class="TeamRateSpanClass" title="${i.team_2  }"  href='javascript:void(0);'>${i.team_2_LRate}</a></td>
-								<td   title="${i.comment }"><a id="team_two_K_${i.teamId  }"   class="TeamRateSpanClass" title="${i.team_2  }"  href='javascript:void(0);'>${i.team_2_KRate}</a></td>
+								<td   title="${i.comment }"><a id="team_one_L_${i.teamId  }"   class="TeamRateSpanClass" title="${i.team_1  }"  href='javascript:void(0);'>0.00</a></td>
+								<td   title="${i.comment }"><a id="team_one_K_${i.teamId  }"   class="TeamRateSpanClass" title="${i.team_1  }"  href='javascript:void(0);'>0.00</a></td>
+								<td   title="${i.comment }"><a id="team_Tie_${i.teamId  }"   class="TeamRateSpanClass" title="tied${i.comment  }"  href='javascript:void(0);'>0.00</a></td>
+								<td   title="${i.comment }"><a id="team_two_L_${i.teamId  }"   class="TeamRateSpanClass" title="${i.team_2  }"  href='javascript:void(0);'>0.00</a></td>
+								<td   title="${i.comment }"><a id="team_two_K_${i.teamId  }"   class="TeamRateSpanClass" title="${i.team_2  }"  href='javascript:void(0);'>0.00</a></td>
 								<td   title="${i.comment }"><a href='inplay2'  id="team_2_${i.teamId  }"><i class='fa fa-chevron-right'></i></a></td>
 							</tr>
 							<c:set var="j" value="${j+1}"></c:set>
@@ -122,14 +123,6 @@ var rateNowMatchName="";
 $(document).ready(function(){
 	getTeamRate();
 
-/* 		$("body").on("click","#inplayPrime tr",function(){
-			var rateNowMatchName=$(this).attr("title");
-			var tempId=$(this).attr("id");
-			rateNowMatchId=tempId.replace("tr","");
-
-			alert(rateNowMatchId+"     "+rateNowMatchName);
-		});
- */
 	$(".mainCatg").click(function(){
 		$(this).toggleClass("fa-minus");
 		$(this).next().next().slideToggle();
@@ -231,6 +224,8 @@ function getBetRejectList(){
 
 
 function getTeamRate(){
+	var ids=$(".TeamIdHolderClass").attr("id");
+	alert(ids);
 	$.ajax({
 		type:"get",
 		url:"getTeamRateForMatch",

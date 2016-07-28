@@ -65,12 +65,9 @@
 							</div> --%>
 							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
 							<div class="box2" style="width: 210px; float: left; padding: 0px; margin: 0px;border: 1px solid #d5d5d5;">
-								<span style='width: 100%; display: block;'>Actual Book <input
-									type="checkbox" style="float: right;"></span> <span
-									style='width: 100%; display: block;'>Without Com <input
-									type="checkbox" style="float: right;"></span> <span
-									style='width: 100%; display: block;'>With Patti <input
-									type="checkbox" style="float: right;"></span>
+								   <span style='width: 100%;display: block;'>Actual Book <input class="CommissionClassChkBox" id="ActualBook" type="checkbox" style="float: right;"></span>
+						            <span  style='width: 100%;display: block;'>Without Com <input class="CommissionClassChkBox" id="WithoutCommission" type="checkbox" style="float: right;"></span>
+						            <span  style='width: 100%;display: block;'>With Patti <input class="CommissionClassChkBox" id="withPattiCommission" type="checkbox" style="float: right;"></span>
 								<!--  <span style='width: 100%;display: block;'>Auto accept bids of Match <input type="checkbox" style="float: right;"></span>
                             <span style='width: 100%;display: block;'>Auto accept session bids <input type="checkbox" style="float: right;"></span> -->
 							</div>
@@ -171,12 +168,9 @@
 							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
 							<div class="box2"
 								style="width: 210px; float: left; padding: 0px; margin: 0px;">
-								<span style='width: 100%; display: block;'>Actual Book <input
-									type="checkbox" style="float: right;"></span> <span
-									style='width: 100%; display: block;'>Without Com <input
-									type="checkbox" style="float: right;"></span> <span
-									style='width: 100%; display: block;'>With Patti <input
-									type="checkbox" style="float: right;"></span>
+								   <span style='width: 100%;display: block;'>Actual Book <input class="CommissionClassChkBox" id="ActualBook" type="checkbox" style="float: right;"></span>
+						            <span  style='width: 100%;display: block;'>Without Com <input class="CommissionClassChkBox" id="WithoutCommission" type="checkbox" style="float: right;"></span>
+						            <span  style='width: 100%;display: block;'>With Patti <input class="CommissionClassChkBox" id="withPattiCommission" type="checkbox" style="float: right;"></span>
 								<!--  <span style='width: 100%;display: block;'>Auto accept bids of Match <input type="checkbox" style="float: right;"></span>
                             <span style='width: 100%;display: block;'>Auto accept session bids <input type="checkbox" style="float: right;"></span> -->
 							</div>
@@ -328,9 +322,9 @@
 								</c:if>
 							</div>
 							<div class="box3" style='float: right; width: 160px; border: 1px solid #d5d5d5;'>
-								<span style='width: 100%; display: block;'>Actual Book <input type="checkbox" style="float: right;"></span>
-								<span style='width: 100%; display: block;'>Without Com <input	type="checkbox" style="float: right;"></span>
-								<span style='width: 100%; display: block;'>With Patti <input type="checkbox" style="float: right;"></span>
+								   <span style='width: 100%;display: block;'>Actual Book <input class="CommissionClassChkBox" id="ActualBook" type="checkbox" style="float: right;"></span>
+						            <span  style='width: 100%;display: block;'>Without Com <input class="CommissionClassChkBox" id="WithoutCommission" type="checkbox" style="float: right;"></span>
+						            <span  style='width: 100%;display: block;'>With Patti <input class="CommissionClassChkBox" id="withPattiCommission" type="checkbox" style="float: right;"></span>
 							</div>
 
 						</div>
@@ -533,8 +527,8 @@
                     <tbody>
                     <c:forEach var="i" begin="1" end="20">
                     	<tr>
-		                    <td>23</td>
-		                    <td>2345</td>
+		                    <td>00</td>
+		                    <td>0000</td>
 		                </tr>
                     </c:forEach>
                     </tbody>
@@ -550,9 +544,9 @@
 	            </div>
             </div>
            	<div class="box2" style="width: 100%;float: left;padding: 5px;margin: 0px;height: 95px;">
-	            <span style='width: 100%;display: block;'>Actual Book <input type="checkbox" style="float: right;"></span>
-	            <span style='width: 100%;display: block;'>Without Com <input type="checkbox" style="float: right;"></span>
-	            <span style='width: 100%;display: block;'>With Patti <input type="checkbox" style="float: right;"></span>
+	            <span style='width: 100%;display: block;'>Actual Book <input class="CommissionClassChkBox" id="ActualBook" type="checkbox" style="float: right;"></span>
+	            <span  style='width: 100%;display: block;'>Without Com <input class="CommissionClassChkBox" id="WithoutCommission" type="checkbox" style="float: right;"></span>
+	            <span  style='width: 100%;display: block;'>With Patti <input class="CommissionClassChkBox" id="withPattiCommission" type="checkbox" style="float: right;"></span>
 	            <!-- <span style='width: 100%;display: block;'>Auto accept bids of Match <input type="checkbox" style="float: right;"></span>
 	            <span style='width: 100%;display: block;'>Auto accept session bids <input type="checkbox" style="float: right;"></span> -->
             </div>
@@ -571,7 +565,7 @@
         </div>
         <!-- <span id='showOverlayBtn' class='showBtn' onclick='showHideOverlay(1)'><i class='fa fa-chevron-left'></i></span> -->
         <div id='adminOverlayPanel'>
-        	 <div class='adminOverlayPanelTblDiv2'>
+        	<!--  <div class='adminOverlayPanelTblDiv2'>
         		<table class='table table-striped table-bordered' style='margin:0px;'>
         			<tr>
         				<td colspan='3'>INDIA WON THE TOSS AND BAT FORST</td>
@@ -583,14 +577,15 @@
         				<td>Runs</td>
         				<td colspan="2" rowspan="3"><textarea   class="form-control"></textarea></td>
         			</tr>
+        			
         			<tr>
-        				<td>Yes</td>
+        				<td>No</td>
         				<td><input  style="width:55px;" type='number' step='0.01' max='9' min='0.1' class="form-control"></td>
         				<td><input  style="width:50px;" type='number' step='1'  min='0' class="form-control"></td>
         			
         			</tr>
         			<tr>
-        				<td>No</td>
+        				<td>Yes</td>
         				<td><input  style="width:55px;" type='number' step='0.01' max='9' min='0.1' class="form-control"></td>
         				<td><input  style="width:50px;" type='number' step='1'  min='0' class="form-control"></td>
         			
@@ -603,7 +598,7 @@
         			</tr>
        			</table>
     		</div> 
-    		
+    		 -->
     		
         </div>
         </div>
@@ -1463,34 +1458,41 @@
     		    data: $("#sessionRateForm").serialize(),
     		    url: "<%=ctxPath%>/admin/setAdminSessionRate?matchId="+$('#HiddenTeamId').val(),
     		    success: function(data){
-    		    /* 	var runs=$("#sessionRateFormRunsId").val();
-    		    	var rate=$("#sessionRateFormAmountId").val();
-    		    	var yesNo=$("#YesNoLabel").val(); */
+    		    	var runs=$("#sessionRateFormRunsId").val();
+    		    	var amount=$("#sessionRateFormAmountId").val();
+    		    	var yesNo=$("#YesNoLabel").val(); 
     		    	alert(data);
-    		    	//createSessionHtML(runs,amount,yesNo);
+    		    	createSessionHtML(runs,amount,yesNo);
     		    },
     			error:function() {
     				alert("Not Updated Try again.");
     			}
-    		});
+    		}); 
         }
-/* function createSessionHtML(runs,amount,yesNo){
-var tableHtml="";
-for(var i=0;i<runs+20;i++){	
-if(i<runs){
-tableHtml+="<tr><td>"+i+"</td><td>-"+amount+"</td></tr>";
-}else{
-tableHtml+="<tr><td>"+i+"</td><td>"+amount+"</td></tr>";
-}
-
-}
+ function createSessionHtML(runs,amount,yesNo){//alert(runs+"   "+amount+"   "+yesNo);
+	var tableHtml="";
+	runs=runs+4;
 	if(yesNo==="yes"){
-		$("#showRecs2 tbody").html("yes html");
+		for(var i=1;i<=runs;i++){//alert(i)	
+			if(i<runs){
+				tableHtml+="<tr><td>"+i+"</td><td>-"+amount+"</td></tr>";
+			}else{
+				tableHtml+="<tr><td>"+i+"</td><td>"+amount+"</td></tr>";
+			}
+		}
+		$("#showRecs2 tbody").html(tableHtml);
 	}else{
-		$("#showRecs2 tbody").html("No html");
+		for(var i=1;i<=runs;i++){	//alert("else"+i)
+			if(i<runs){
+				tableHtml+="<tr><td>"+i+"</td><td>"+amount+"</td></tr>";
+			}else{
+				tableHtml+="<tr><td>"+i+"</td><td><b> -"+amount+"</b></td></tr>";
+			}
+		}
+		$("#showRecs2 tbody").html(tableHtml);
 	}
 	
-} */
+} 
         function AutoChangeAmount(val,id1){
         	var amount=0;
         	// alert(id1);
@@ -1647,8 +1649,17 @@ tableHtml+="<tr><td>"+i+"</td><td>"+amount+"</td></tr>";
 				 $(this).prop("checked",true);
 				 $("#selectSessionButton").attr("disabled",false);
          });
-
-
+        
+        
+        /* For select Commision  checkbox like radio button   */
+        $("body").on("click",".CommissionClassChkBox",function(){
+        	 var checked = $(this).is(':checked');
+		    $(".CommissionClassChkBox").prop('checked',false);
+		    if(checked) {
+		        $(this).prop('checked',true);
+		    } 
+         });
+        
 
             adjustments();
         	/*  $("body").on("dblclick","#showRecs1 tr",function(){
@@ -1738,7 +1749,7 @@ tableHtml+="<tr><td>"+i+"</td><td>"+amount+"</td></tr>";
         	var betRate=$("#betRateEnter").val();
         	var onteam=$("#teamIdEnterAMt").val();
         	alert(onteam);
-        	var 
+        	
         	var team1Amt=$("#betRateAmount").val();
         	var userId=$("#SelectBetEditUser").val();
         	/* var team2Amt=$("#team2EnterAmount").val(); */
@@ -1835,8 +1846,8 @@ tableHtml+="<tr><td>"+i+"</td><td>"+amount+"</td></tr>";
     </script>
     <!-- This script for Admin Bet Accept and Show -->
     <script type="text/javascript">
-    window.setInterval(crateBetAdminHtml, 300000);
-    window.setInterval(getTotalOfTeamFromTeamBetPlace, 200000);
+    window.setInterval(crateBetAdminHtml, 3000);
+    window.setInterval(getTotalOfTeamFromTeamBetPlace, 2000);
     
     function getTotalOfTeamFromTeamBetPlace(){
     	
@@ -1956,8 +1967,8 @@ var sessionDivArray=[];
 	    	html+="<table class='table table-striped table-bordered' style='margin:0px;'>";
 	    	html+="<tr><td colspan='3'>"+name+"</td><td>"+description+"</td></tr>";
 	    	html+="<tr><td>Type</td><td>RATE</td><td>Runs</td><td colspan='2' rowspan='3'><textarea   class='form-control'></textarea></td></tr>";
-	    	html+="<tr><td>Yes</td><td><input  style='width:55px;' type='number' step='0.01' max='9' min='0.1' class='form-control'></td><td><input  style='width:50px;' type='number' step='1'  min='0' class='form-control'></td></tr>";
 	    	html+="<tr><td>No</td><td ><input style='width:55px;'  type='number' step='0.01' max='9' min='0.1' class='form-control'></td><td><input  style='width:50px;' type='number' step='1'  min='0' class='form-control'></td></tr>";
+	    	html+="<tr><td>Yes</td><td><input  style='width:55px;' type='number' step='0.01' max='9' min='0.1' class='form-control'></td><td><input  style='width:50px;' type='number' step='1'  min='0' class='form-control'></td></tr>";
 	    	html+="<tr><td colspan='4'><button class='btn btn-default'>Show</button><button class='btn btn-default'>Don't Show</button></td></tr>";
 	    	html+="</table></div>";
 	    	$("#adminOverlayPanel").append(html);

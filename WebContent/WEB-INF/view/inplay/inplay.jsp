@@ -81,7 +81,7 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 						<i class="fa fa-minus" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 						<i class="fa fa-question" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 					</div>
-					<div style='float: left;padding-left: 20px'>INDIA</div>
+					<div style='float: left;padding-left: 20px'>Macth List</div>
 					<div style='float:right;'>
 						<i class="fa fa-times" style='cursor:pointer;color: #fff;margin: 0px 3px;'></i>
 					</div>
@@ -96,7 +96,7 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 								<span>Match</span>
 								<div class="col-xs-12 rmpm subSubCatg" style='padding-left: 20px;display:none;'>
 									<c:forEach var="team" items="${teamList}">
-									<span id="${team.teamId }" onclick="loadMatchInplay(this.id)" style="display: block;">${team.comment }</span>
+								<%-- 	<span id="${team.teamId }" onclick="loadMatchInplay(this.id)" style="display: block;">${team.comment }</span> --%>
 									<span id="111_${team.teamId }" onclick="inplayByMatchId()" style="display: block;">xxx=${team.comment }</span>
 									
 									</c:forEach>
@@ -320,20 +320,6 @@ function inplayByMatchId(){
 }
 
 
-function loadMatchInplay(ids){
-	alert(ids)
-	$.ajax({
-		type:"post",
-		url:"getTeamRatePageForMatchId",
-		data:{"teamId":ids},
-		success:function(data){
-			//alert("Success : "+data);
-
-		},
-		error:function(data){alert("Error : "+data)}
-
-	});
-}
 
 </script>
 </html>

@@ -96,6 +96,6 @@ String userType=(String)sessionObj.getAttribute("userType");
 	<span id='adminPage3' class='adminMnu'><a href="page3">Page 3</a></span>
 	<span id='adminPage4' class='adminMnu'><a href="page4">Individual Session</a></span>
 	<span id='adminPage4' class='adminMnu'><a href="admin/settingTransactionPage">SettingTransactionPage</a></span>
-	<span id='adminPage2' class='adminMnu'><a href="AdminBetAccept">AdminBetAccept</a></span>
+	<span id='adminPage2' class='adminMnu'><a href="admin/AdminBetAcceptNew">AdminBetAccept</a></span>
 </div>
 </div>
