@@ -21,8 +21,7 @@
 				<c:choose>
 					<c:when test="${not empty teamBean.team_1 and not empty teamBean.team_2 and  empty teamBean.team_3 }">
 						<div class="sectionFirst">
-							<div class="box1"
-								style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
+							<div class="box1" style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
 								<c:if test="${not empty teamBean.team_1 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
 										<input class="form-control" style='float: left; margin: 2px;' name='team_1' type="text" value="${teamBean.team_1 }" readonly="readonly" /> 
@@ -39,90 +38,46 @@
 								</c:if>
 
 							</div>
-							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
-						<%-- 	<div class="box1"
-								style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
-								<c:if test="${not empty teamBean.team_1 }">
-									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_1 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
-									</span>
-								</c:if>
-								<c:if test="${not empty teamBean.team_2 }">
-									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_2 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
-									</span>
-								</c:if>
-							</div> --%>
-							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
+						
 							<div class="box2" style="width: 210px; float: left; padding: 0px; margin: 0px;border: 1px solid #d5d5d5;">
 								   <span style='width: 100%;display: block;'>Actual Book <input class="CommissionClassChkBox" id="ActualBook" type="checkbox" style="float: right;"></span>
 						            <span  style='width: 100%;display: block;'>Without Com <input class="CommissionClassChkBox" id="WithoutCommission" type="checkbox" style="float: right;"></span>
 						            <span  style='width: 100%;display: block;'>With Patti <input class="CommissionClassChkBox" id="withPattiCommission" type="checkbox" style="float: right;"></span>
-								<!--  <span style='width: 100%;display: block;'>Auto accept bids of Match <input type="checkbox" style="float: right;"></span>
-                            <span style='width: 100%;display: block;'>Auto accept session bids <input type="checkbox" style="float: right;"></span> -->
+								</div>
+							
+							<div class="box3" style='float: right; width: 160px; border: 1px solid #d5d5d5;'>
+								<span class="fllt" 	style='float: left; display: block; width: 45px; height: 25px; margin: 3px 0px;'>AVG L</span> 
+								<input class="form-control blueBkCol" 	style='float: left; width: 95px; height: 25px; margin: 3px 0px;' -	name='avgLgi' type="number" step="0.01" /> 
+								<span style='float: left; display: block; width: 45px; height: 25px; margin: 3px 0px;'>AVGK</span> 
+								<input class="form-control yellowBkCol" style='float: left; width: 95px; height: 25px; margin: 3px 0px;' name='avgKhi' type="number" step="0.01" />
 							</div>
-							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
-							<div class="box3"
-								style='float: right; width: 160px; border: 1px solid #d5d5d5;'>
-								<span class="fllt"
-									style='float: left; display: block; width: 45px; height: 25px; margin: 3px 0px;'>AVG
-									L</span> <input class="form-control blueBkCol"
-									style='float: left; width: 95px; height: 25px; margin: 3px 0px;'
-									name='avgLgi' type="number" step="0.01" /> <span
-									style='float: left; display: block; width: 45px; height: 25px; margin: 3px 0px;'>AVG
-									K</span> <input class="form-control yellowBkCol"
-									style='float: left; width: 95px; height: 25px; margin: 3px 0px;'
-									name='avgKhi' type="number" step="0.01" />
-							</div>
-							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
-							<!-- <div class="box4">
-
-                    </div> -->
+						
 						</div>
 
 					</c:when>
 					<c:when test="${not empty teamBean.team_1 and not empty teamBean.team_2 and not empty teamBean.team_3  and  empty teamBean.team_4 }">
 
 						<div class="sectionFirst">
-							<div class="box1"
-								style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
+							<div class="box1" style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
 								<c:if test="${not empty teamBean.team_1 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_1 }" /> 
-										<input	class='form-control'  id="Total_${ teamBean.team_1}_${ teamBean.teamId}" 
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;'	name='team_1' type="text" value="${teamBean.team_1 }" /> 
+										<input	class='form-control'  id="Total_${ teamBean.team_1}_${ teamBean.teamId}" style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'	style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 								<c:if test="${not empty teamBean.team_2 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_2 }" /> <input
-										class='form-control'  id="Total_${ teamBean.team_2}_${ teamBean.teamId}" 
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' name='team_1' type="text" value="${teamBean.team_2 }" />
+										 <input class='form-control'  id="Total_${ teamBean.team_2}_${ teamBean.teamId}"  	style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control' style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 
 								<c:if test="${not empty teamBean.team_3 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_3 }" />
-										 <input  id="Total_${ teamBean.team_3}_${ teamBean.teamId}" 
-										class='form-control' style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' 	name='team_1' type="text" value="${teamBean.team_3 }" />
+										 <input  id="Total_${ teamBean.team_3}_${ teamBean.teamId}"  class='form-control' style='float: left; margin: 2px; width: 95px;' type='text'>
 										<input class='form-control' style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
@@ -130,9 +85,8 @@
 
 							</div>
 							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
-							<div class="box1"
-								style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
-								<c:if test="${not empty teamBean.team_1 }">
+							<div class="box1" style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
+							<%-- 	<c:if test="${not empty teamBean.team_1 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
 										<input class="form-control" style='float: left; margin: 2px;'
 										name='team_1' type="text" value="${teamBean.team_1 }" /> <input
@@ -163,70 +117,48 @@
 										style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
-
+ --%>
 							</div>
-							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
-							<div class="box2"
-								style="width: 210px; float: left; padding: 0px; margin: 0px;">
+						
+							<div class="box2" style="width: 210px; float: left; padding: 0px; margin: 0px;">
 								   <span style='width: 100%;display: block;'>Actual Book <input class="CommissionClassChkBox" id="ActualBook" type="checkbox" style="float: right;"></span>
 						            <span  style='width: 100%;display: block;'>Without Com <input class="CommissionClassChkBox" id="WithoutCommission" type="checkbox" style="float: right;"></span>
 						            <span  style='width: 100%;display: block;'>With Patti <input class="CommissionClassChkBox" id="withPattiCommission" type="checkbox" style="float: right;"></span>
-								<!--  <span style='width: 100%;display: block;'>Auto accept bids of Match <input type="checkbox" style="float: right;"></span>
-                            <span style='width: 100%;display: block;'>Auto accept session bids <input type="checkbox" style="float: right;"></span> -->
 							</div>
-							<!-- <div style='width: 1px;border: 1px solid #888;height: 80%;float: left;margin-top: 5px;'></div> -->
-							<!-- <div class="box3" style='float: right; width: 160px; border: 1px solid #d5d5d5;'>
-									 <span class="fllt"	style='float: left; display: block; width: 45px; height: 25px; margin: 3px 0px;'>AVG L</span>
-									 <input class="form-control blueBkCol" style='float: left; width: 95px; height: 25px; margin: 3px 0px;' name='avgLgi' type="number" step="0.01" />
-									 <span style='float: left; display: block; width: 45px; height: 25px; margin: 3px 0px;'>AVG K</span>
-									 <input class="form-control yellowBkCol"style='float: left; width: 95px; height: 25px; margin: 3px 0px;' name='avgKhi' type="number" step="0.01" />
-							</div> -->
+							
 						</div>
 
 
 					</c:when>
 					<c:otherwise>
 						<div class="sectionFirst">
-							<div class="box1"
-								style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
+							<div class="box1" 	style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
 								<c:if test="${not empty teamBean.team_1 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_1 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' name='team_1' type="text" value="${teamBean.team_1 }" readonly="readonly" /> 
+										<input class='form-control'  id="Total_${ teamBean.team_1}_${ teamBean.teamId}"  style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'	style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 								<c:if test="${not empty teamBean.team_2 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_2 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' name='team_1' type="text" value="${teamBean.team_2 }" readonly="readonly" /> 
+										<input class='form-control' id="Total_${ teamBean.team_2}_${ teamBean.teamId}"  style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control' style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 								<c:if test="${not empty teamBean.team_3 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_3 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' name='team_1' type="text" value="${teamBean.team_3 }" readonly="readonly" /> 
+										<input class='form-control'id="Total_${ teamBean.team_3}_${ teamBean.teamId}"  style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control' style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 								<c:if test="${not empty teamBean.team_4 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_4 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' 	name='team_1' type="text" value="${teamBean.team_4 }" readonly="readonly" /> 
+										<input class='form-control'  id="Total_${ teamBean.team_4}_${ teamBean.teamId}" style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control' style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 							</div>
@@ -235,44 +167,32 @@
 								style='width: 210px; border: 1px solid #d5d5d5; padding: 0px;'>
 								<c:if test="${not empty teamBean.team_5 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_5 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' 	name='team_1' type="text" value="${teamBean.team_5 }" readonly="readonly" /> 
+										<input class='form-control' id="Total_${ teamBean.team_5}_${ teamBean.teamId}"  style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control' style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 								<c:if test="${not empty teamBean.team_6 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_6 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' 	name='team_1' type="text" value="${teamBean.team_6 }" readonly="readonly" />
+										 <input class='form-control' id="Total_${ teamBean.team_6}_${ teamBean.teamId}"  style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control' style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 
 								<c:if test="${not empty teamBean.team_7 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_7 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' 	name='team_1' type="text" value="${teamBean.team_7 }" readonly="readonly" /> 
+										<input class='form-control' id="Total_${ teamBean.team_7}_${ teamBean.teamId}" 	style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control' 	style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 
 								<c:if test="${not empty teamBean.team_8 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_8 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' name='team_1' type="text" value="${teamBean.team_8 }" readonly="readonly" />
+										 <input class='form-control' id="Total_${ teamBean.team_8}_${ teamBean.teamId}"  style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control' style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 							</div>
@@ -280,44 +200,32 @@
 							<div class="box2" style="width: 210px; float: left; padding: 0px; margin: 0px; border: 1px solid #d5d5d5;">
 								<c:if test="${not empty teamBean.team_9 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_9 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' name='team_1' type="text" value="${teamBean.team_9 }" readonly="readonly" /> 
+										<input class='form-control' id="Total_${ teamBean.team_9}_${ teamBean.teamId}"  style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control' style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 								<c:if test="${not empty teamBean.team_10 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_10 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' name='team_1' type="text" value="${teamBean.team_10 }" 	readonly="readonly" /> 
+										<input class='form-control' id="Total_${ teamBean.team_10}_${ teamBean.teamId}"  style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control'	style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 
 								<c:if test="${not empty teamBean.team_11 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_11 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' 	name='team_1' type="text" value="${teamBean.team_11 }" readonly="readonly" />
+										 <input class='form-control' id="Total_${ teamBean.team_11}_${ teamBean.teamId}" 	style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control' style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 
 								<c:if test="${not empty teamBean.team_12 }">
 									<span style='display: block; width: 100%; margin: 0px;'>
-										<input class="form-control" style='float: left; margin: 2px;'
-										name='team_1' type="text" value="${teamBean.team_12 }"
-										readonly="readonly" /> <input class='form-control'
-										style='float: left; margin: 2px; width: 95px;' type='text'>
-										<input class='form-control'
-										style='float: left; margin: 2px; width: 30px;' type='text'>
+										<input class="form-control" style='float: left; margin: 2px;' name='team_1' type="text" value="${teamBean.team_12 }" readonly="readonly" />
+										 <input class='form-control' id="Total_${ teamBean.team_12}_${ teamBean.teamId}" 	style='float: left; margin: 2px; width: 95px;' type='text'>
+										<input class='form-control' style='float: left; margin: 2px; width: 30px;' type='text'>
 									</span>
 								</c:if>
 							</div>
@@ -1858,20 +1766,44 @@
     	    data:{"teamId":teamId},
     	    url: "<%=ctxPath%>/getTotalOfTeamFromTeamBetPlace",
     	    success: function(data){//alert(data)
-    	     	var jsonParseData=JSON.parse(data);
+    	    	if(data==="" || data=="undefined"){
+    	    		
+    	    	}else{
+    	     //try{
+    	    	var jsonParseData=JSON.parse(data);
     	    	var keys=Object.keys(jsonParseData);
     	    	
     	    		//for(var i=0;i<keys.length;i++){
-    	    			//alert(keys[i])
+    	    			//alert(jsonParseData["team_1"])
     	    			var team1=jsonParseData["team_1"];
     	    			var team2=jsonParseData["team_2"];
+    	    			var team3=jsonParseData["team_3"];
+    	    			var team4=jsonParseData["team_4"];
+    	    			var team5=jsonParseData["team_5"];
+    	    			var team6=jsonParseData["team_6"];
+    	    			var team7=jsonParseData["team_7"];
+    	    			var team8=jsonParseData["team_8"];
+    	    			var team9=jsonParseData["team_9"];
+    	    			var team10=jsonParseData["team_10"];
+    	    			var team11=jsonParseData["team_11"];
+    	    			var team12=jsonParseData["team_12"];
 	    	    		/* var teamName=keys[i];
     	    			var value=jsonParseData[keys[i]]; */
     	    			//alert($("#Total_"+teamName+"_"+teamId).val())
-    	    			$("#Total_"+team1+"_"+teamId).val(jsonParseData["Team1_Amount"]);
+    	    			$("#Total_"+team1+"_"+teamId).val(jsonParseData["Team1_Amount1"]);
     	    			$("#Total_"+team2+"_"+teamId).val(jsonParseData["Team_Amount2"]);
-    	    			
-					//}
+    	    			$("#Total_"+team3+"_"+teamId).val(jsonParseData["Team1_Amount3"]);
+    	    			 $("#Total_"+team4+"_"+teamId).val(jsonParseData["Team1_Amoun4"]);
+    	    			$("#Total_"+team5+"_"+teamId).val(jsonParseData["Team1_Amount5"]);
+    	    			$("#Total_"+team6+"_"+teamId).val(jsonParseData["Team1_Amount6"]);
+    	    			$("#Total_"+team7+"_"+teamId).val(jsonParseData["Team1_Amount7"]);
+    	    			$("#Total_"+team8+"_"+teamId).val(jsonParseData["Team1_Amount8"]);
+    	    			$("#Total_"+team9+"_"+teamId).val(jsonParseData["Team1_Amount9"]);
+    	    			$("#Total_"+team10+"_"+teamId).val(jsonParseData["Team1_Amount10"]);
+    	    			$("#Total_"+team11+"_"+teamId).val(jsonParseData["Team1_Amount11"]);
+    	    			$("#Total_"+team12+"_"+teamId).val(jsonParseData["Team1_Amount12"]); 
+					}
+    	     //}catch(ex){}
     	    },
     		error:function() {
     			alert("Sorry No User Exist with this  Id.");
