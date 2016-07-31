@@ -97,7 +97,7 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 								<div class="col-xs-12 rmpm subSubCatg" style='padding-left: 20px;display:none;'>
 									<c:forEach var="team" items="${teamList}">
 								<%-- 	<span id="${team.teamId }" onclick="loadMatchInplay(this.id)" style="display: block;">${team.comment }</span> --%>
-									<span id="111_${team.teamId }" onclick="inplayByMatchId()" style="display: block;">xxx=${team.comment }</span>
+									<span id="TeamIdSelect_${team.teamId }" onclick="inplayByMatchId(this.id)" style="display: block;">${team.comment }</span>
 									
 									</c:forEach>
 								</div>
@@ -118,7 +118,7 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 		</div>
 		<div class='col-xs-8' id="appendInplayData">
 		</div>
-		<%-- <div class='col-xs-8' style="display: none;">
+	 <div class='col-xs-8' style="display: ;">
 
 		  <!-- Nav tabs -->
 		  <ul class="nav nav-tabs" role="tablist">
@@ -142,20 +142,8 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 		    				<td>&nbsp</td>
 		    			</tr>
 		    		</thead>
-		    		<tbody>
-		    			<c:set var="j" value="1"></c:set>
-						<c:forEach var="i" items="${teamList}">
-							<tr id="tr${i.teamId }"  title="${i.comment }">
-								<td id="comment_${i.teamId  }">${i.comment }<input type="hidden" id="TeamId_${i.teamId }" value="${i.teamId }"></td>
-								<td   title="${i.comment }"><a id="team_one_L_${i.teamId  }"   class="TeamRateSpanClass" title="${i.team_1  }"  href='javascript:void(0);'>${i.team_1_LRate}</a></td>
-								<td   title="${i.comment }"><a id="team_one_K_${i.teamId  }"   class="TeamRateSpanClass" title="${i.team_1  }"  href='javascript:void(0);'>${i.team_1_KRate}</a></td>
-								<td   title="${i.comment }"><a id="team_Tie_${i.teamId  }"   class="TeamRateSpanClass" title="tied${i.comment  }"  href='javascript:void(0);'>${j*1 -1}</a></td>
-								<td   title="${i.comment }"><a id="team_two_L_${i.teamId  }"   class="TeamRateSpanClass" title="${i.team_2  }"  href='javascript:void(0);'>${i.team_2_LRate}</a></td>
-								<td   title="${i.comment }"><a id="team_two_K_${i.teamId  }"   class="TeamRateSpanClass" title="${i.team_2  }"  href='javascript:void(0);'>${i.team_2_KRate}</a></td>
-								<td   title="${i.comment }"><a href='inplay2'  id="team_2_${i.teamId  }"><i class='fa fa-chevron-right'></i></a></td>
-							</tr>
-							<c:set var="j" value="${j+1}"></c:set>
-						</c:forEach>
+		    		<tbody  id="appendInPlayMatchId">
+		    			
 		    		</tbody>
 		    	</table>
 		    	</div>
@@ -164,7 +152,6 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 		  </div>
 
 		</div>
-	 --%>
 	</div>
 	<div class="footerContainer"><jsp:include page="footer.jsp"></jsp:include> </div>
 </div>
@@ -175,21 +162,27 @@ font-size: 14px;margin: 0px 5px 0px 0px;cursor: pointer;}
 <script type="text/javascript">
 var items=1;
 var exist=[];
-
+var matchArray=[];
 var rateNowMatchId=0;
 var rateNowMatchName="";
 
 $(document).ready(function(){
-	getTeamRate();
+	 if(matchArray.length>0){
+		 for(var i=0;i<matchArray.length;i++){
+			 getTeamRate(matchArray[i]);
+		 }
+		
+	} 
+	
 
-/* 		$("body").on("click","#inplayPrime tr",function(){
+ 		$("body").on("click","#inplayPrime tr",function(){
 			var rateNowMatchName=$(this).attr("title");
 			var tempId=$(this).attr("id");
 			rateNowMatchId=tempId.replace("tr","");
 
 			alert(rateNowMatchId+"     "+rateNowMatchName);
 		});
- */
+ 
 	$(".mainCatg").click(function(){
 		$(this).toggleClass("fa-minus");
 		$(this).next().next().slideToggle();
@@ -197,7 +190,7 @@ $(document).ready(function(){
 	});
 
 	getBetRejectList();
-/* 	$(".TeamRateSpanClass").click(function(){alert("call  123     "+this.id.split("_")[2])
+ 	$(".TeamRateSpanClass").click(function(){alert("call  123     "+this.id.split("_")[2])
 		var teamName=$(this).attr("title");
 		var teamId=this.id.split("_")[3];
 		var betMode=this.id.split("_")[2];
@@ -234,9 +227,9 @@ $(document).ready(function(){
 		//alert(exist);
 		inplaySlip(this.id,items);
 
-	});*/
+	});
 });
-/*
+
 function createHtmlForBetPlace(teamName,teamId,matchName,betAdminAmt,items,betMode){
 	var html='';
 	//for(var i=0;i<items;i++){
@@ -250,13 +243,13 @@ function createHtmlForBetPlace(teamName,teamId,matchName,betAdminAmt,items,betMo
 		html+="</div><hr style='margin:15px 0px 10px 0px;border: 0;border-top: 1px solid #eee;'></div>";
 
 	return html;
-} */
+} 
 
 function closeParentDiv(divId){alert(divId)
 	$("#div"+divId.split('-')[1]).remove();
 }
 
-$('#inplayPrime').DataTable({
+$('#inplayPrime1').DataTable({
     "scrollY":  "60vh",
     "scrollCollapse": true,
     "paging":         false,
@@ -290,13 +283,15 @@ function getBetRejectList(){
 }
 
 
-function getTeamRate(){
+function getTeamRate(teamId){
+	
+
 	$.ajax({
 		type:"get",
 		url:"getTeamRateForMatch",
-		data:{"teamId":22, "teamName":"Ind"},
+		data:{"teamId":teamId},
 		success:function(data){
-			//alert("Success : "+data);
+			alert("Success : "+data);
 
 		},
 		error:function(data){alert("Error : "+data)}
@@ -305,14 +300,18 @@ function getTeamRate(){
 }
 
 
-function inplayByMatchId(){
+function inplayByMatchId(id){
+var teamId=id.split("_")[1];
+matchArray.push(teamId);
 	$.ajax({
 		type:"post",
 		url:"inplayByMatchId",
-		data:{"teamId":22},
+		data:{"teamId":teamId},
 		success:function(data){
-			alert("Success : "+data);
-			$("#appendInplayData").html(data);
+		//	alert("Success : "+data);
+			$("#tr_"+teamId).remove();
+			$("#appendInPlayMatchId").prepend(data);
+			getTeamRate(teamId);
 		},
 		error:function(data){alert("Error : "+data)}
 

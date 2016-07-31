@@ -40,7 +40,7 @@
 							</div>
 						
 							<div class="box2" style="width: 210px; float: left; padding: 0px; margin: 0px;border: 1px solid #d5d5d5;">
-								   <span style='width: 100%;display: block;'>Actual Book <input class="CommissionClassChkBox" id="ActualBook" type="checkbox" style="float: right;"></span>
+								   <span style='width: 100%;display: block;'>Actual Book <input class="CommissionClassChkBox" id="ActualBook" checked="checked" type="checkbox" style="float: right;"></span>
 						            <span  style='width: 100%;display: block;'>Without Com <input class="CommissionClassChkBox" id="WithoutCommission" type="checkbox" style="float: right;"></span>
 						            <span  style='width: 100%;display: block;'>With Patti <input class="CommissionClassChkBox" id="withPattiCommission" type="checkbox" style="float: right;"></span>
 								</div>
@@ -121,7 +121,7 @@
 							</div>
 						
 							<div class="box2" style="width: 210px; float: left; padding: 0px; margin: 0px;">
-								   <span style='width: 100%;display: block;'>Actual Book <input class="CommissionClassChkBox" id="ActualBook" type="checkbox" style="float: right;"></span>
+								   <span style='width: 100%;display: block;'>Actual Book <input class="CommissionClassChkBox" id="ActualBook"  checked="checked" type="checkbox" style="float: right;"></span>
 						            <span  style='width: 100%;display: block;'>Without Com <input class="CommissionClassChkBox" id="WithoutCommission" type="checkbox" style="float: right;"></span>
 						            <span  style='width: 100%;display: block;'>With Patti <input class="CommissionClassChkBox" id="withPattiCommission" type="checkbox" style="float: right;"></span>
 							</div>
@@ -230,7 +230,7 @@
 								</c:if>
 							</div>
 							<div class="box3" style='float: right; width: 160px; border: 1px solid #d5d5d5;'>
-								   <span style='width: 100%;display: block;'>Actual Book <input class="CommissionClassChkBox" id="ActualBook" type="checkbox" style="float: right;"></span>
+								   <span style='width: 100%;display: block;'>Actual Book <input class="CommissionClassChkBox" id="ActualBook"  checked="checked"  type="checkbox" style="float: right;"></span>
 						            <span  style='width: 100%;display: block;'>Without Com <input class="CommissionClassChkBox" id="WithoutCommission" type="checkbox" style="float: right;"></span>
 						            <span  style='width: 100%;display: block;'>With Patti <input class="CommissionClassChkBox" id="withPattiCommission" type="checkbox" style="float: right;"></span>
 							</div>
@@ -293,8 +293,8 @@
                             <TD id="tdbetType_${teamBean.betId}">${teamBean.betType}</TD>
                             <td id="tdonTeam_${teamBean.betId}">${teamBean.onTeam}</td>
                             <td id="tduserId_${teamBean.betId}">${teamBean.userId}</td>
-                            <td>7865432</td>
-                            <td>-765465</td>
+                            <td>${teamBean.winAmount}</td>
+                            <td>${teamBean.lossAmount}</td>
                         <!--     <td>1</td> -->
                             <td id="tr_${teamBean.betId}">${teamBean.createdTime}</td>
                        <%--      <td>${teamBean.ipAddress}</td>
@@ -363,8 +363,10 @@
                     <!-- <span>Team1</span> -->
                     <!-- <span>Team2</span> -->
                 </div>
+                <input class='form-control'  id="hiddenBetId"  type="hidden" />
                 <div class="bot">
                     <input class='form-control'  id="betRateEnter"  type="number" step="0.01"/>
+                     
                     <input class='form-control'  id="betRateAmount"  type="text" onblur="AutoChangeAmount(this.value,this.id);"/>
                     <select id="betMoodEnter" name="mode" class='form-control'>
                         <option value='L'>L</option>
@@ -383,7 +385,7 @@
                     </select>
                    <!--  <input class='form-control' id="team1EnterAmount" type="text"/> -->
                     <!-- <input class='form-control' id="team2EnterAmount"  type="text"/> -->
-                    <button  id="EnterBetAmountByAdmin"  onclick="EnterBetAmountByAdmin();" class="btn btn-primary">OK</button>
+                    <button  id="EnterBetAmountByAdmin"  onclick="EnterOrUpdateBetAmountByAdmin();" class="btn btn-primary">OK</button>
                     <button class="btn btn-primary">&nbsp;&nbsp;&nbsp;Close&nbsp;&nbsp;&nbsp;</button>
                 </div>
             </div>
@@ -1607,7 +1609,6 @@
         	
         	 $("#ModifyExistingBet").attr("disabled",false);
         	  modiFyBetId=$(thisobj).attr("id").split("_")[1];
-        	// alert(thisobj.);
         	   alert($(thisobj).children().html());
         	  
         
@@ -1620,6 +1621,7 @@
         		var type= $("#tdbetType_"+modiFyBetId).html();
         		var teamName=$("#tdonTeam_"+modiFyBetId).html();
         		var userId= $("#tduserId_"+modiFyBetId).html();
+        		$("#hiddenBetId").val(modiFyBetId);
         		$("#betRateEnter").val(rate);
         		$("#betRateAmount").val(amt);
         		$("#betMoodEnter option").attr('selected',false);
@@ -1651,28 +1653,31 @@
         	crateBetAdminHtml();
     	});
 
-        function EnterBetAmountByAdmin(){
+        function EnterOrUpdateBetAmountByAdmin(){
         	var teamId=$("#teamIdEnterAMt").val();
         	var mode=$("#betMoodEnter").val();
         	var betRate=$("#betRateEnter").val();
         	var onteam=$("#teamIdEnterAMt").val();
         	alert(onteam);
-        	
-        	var team1Amt=$("#betRateAmount").val();
+        	var betAmount=$("#betRateAmount").val();
         	var userId=$("#SelectBetEditUser").val();
+        	var betId=$("#hiddenBetId").val();
         	/* var team2Amt=$("#team2EnterAmount").val(); */
-        	$.ajax({
-    		    type: "post",
-    		    async :false,
-    		    data:{"matchId":teamId,"team1Rate":team1Amt,"onteam":onteam,"mode":mode,"rate":betRate,"userId":userId},
-    		    url: "<%=ctxPath%>/adminEnterValueForMatch",
-    		    success: function(data){
-    		    	alert(data);
-    		    },
-    			error:function() {
-    				alert("Not Updated Try again.");
-    			}
-    		});
+  //      	String betAmount, String betType, String betRate, String onTeam,  String  betId)
+			  if(betId!="undefined" && betId!==""){
+			        	$.ajax({
+			    		    type: "post",
+			    		    async :false,
+			    		    data:{"betAmount":betAmount,"betType":mode,"onTeam":onteam,"betRate":betRate,"betId":betId,"userId":userId},
+			    		    url: "<%=ctxPath%>/EnterOrUpdateBetAmountByAdmin",
+			    		    success: function(data){
+			    		    	alert(data);
+			    		    },
+			    			error:function() {
+			    				alert("Not Updated Try again.");
+			    			}
+			    		});
+			  }
         }
 
 
@@ -1754,8 +1759,8 @@
     </script>
     <!-- This script for Admin Bet Accept and Show -->
     <script type="text/javascript">
-    window.setInterval(crateBetAdminHtml, 3000);
-    window.setInterval(getTotalOfTeamFromTeamBetPlace, 2000);
+    window.setInterval(crateBetAdminHtml, 30000);
+    window.setInterval(getTotalOfTeamFromTeamBetPlace, 20000);
     
     function getTotalOfTeamFromTeamBetPlace(){
     	
@@ -1779,6 +1784,7 @@
     	    			var team2=jsonParseData["team_2"];
     	    			var team3=jsonParseData["team_3"];
     	    			var team4=jsonParseData["team_4"];
+    	    			//alert(team4   +"       "+jsonParseData["Team1_Amount4"])
     	    			var team5=jsonParseData["team_5"];
     	    			var team6=jsonParseData["team_6"];
     	    			var team7=jsonParseData["team_7"];
@@ -1793,7 +1799,7 @@
     	    			$("#Total_"+team1+"_"+teamId).val(jsonParseData["Team1_Amount1"]);
     	    			$("#Total_"+team2+"_"+teamId).val(jsonParseData["Team_Amount2"]);
     	    			$("#Total_"+team3+"_"+teamId).val(jsonParseData["Team1_Amount3"]);
-    	    			 $("#Total_"+team4+"_"+teamId).val(jsonParseData["Team1_Amoun4"]);
+    	    			 $("#Total_"+team4+"_"+teamId).val(jsonParseData["Team1_Amount4"]);
     	    			$("#Total_"+team5+"_"+teamId).val(jsonParseData["Team1_Amount5"]);
     	    			$("#Total_"+team6+"_"+teamId).val(jsonParseData["Team1_Amount6"]);
     	    			$("#Total_"+team7+"_"+teamId).val(jsonParseData["Team1_Amount7"]);
