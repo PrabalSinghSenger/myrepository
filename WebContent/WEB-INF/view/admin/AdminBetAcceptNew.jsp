@@ -24,11 +24,29 @@ span input[text]{width:32px;margin-left: 5px;margin-right: 5px;}
 .bdr-btm{border-bottom: 1px solid #d3d3d3;}
 .pdg5{padding: 5px;}
 .pdg10{padding: 10px;}
-.heading{background-color: rgb(209, 209, 209);line-height: 1.7;text-align: center;font-size: 22px;}
+.heading{background-color: rgb(209, 209, 209);line-height: 1.7;text-align: center;font-size: 22px;margin:0px;}
 .pdg0{padding: 0px;}
 .teamName{line-height: 2.2;background-color: rgb(209, 209, 209);padding: 3px;font-weight: 600;margin-right: 5px;}
 .teamGruopDiv{height: 26px;width: 100%;margin-right: 10px;}
 .kpiDiv input[text]{width:85px;margin-left: 5px;margin-right: 5px;float: right;}
+.teamName1,.teamName3,.teamName4{
+    display: flex;
+    width: 80px;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    height: 23px;
+}
+.teamName2{
+	float:left;
+	width:calc(100% - 90px);
+}
+.teamName3{
+	width:100px;
+}
+.teamName4{
+	width:60px;
+}
 </style>
 </head>
 <body style="height: 100%;width: 100%;padding:0px;">
